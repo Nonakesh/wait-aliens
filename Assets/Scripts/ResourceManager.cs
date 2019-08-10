@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public int StartTime;
-
+    public int StartTime = 0;
+    public int StartScore = 0;
+    
+    private Dictionary<ResourceType, int> resources;
     private static ResourceManager _instance;
 
     private void Awake()
@@ -14,12 +17,12 @@ public class ResourceManager : MonoBehaviour
 
     public static void AddResource(ResourceType type, int amount)
     {
-        throw new NotImplementedException();
+        _instance.resources[type] += amount;
     }
 
     public static bool IsAvailable(ResourceType type, int amount)
     {
-        throw new NotImplementedException();
+        return _instance.resources[type] >= amount;
     }
     
     /// <summary>
@@ -31,6 +34,17 @@ public class ResourceManager : MonoBehaviour
     /// <exception cref="NotImplementedException"></exception>
     public static bool TryTakeResource(ResourceType type, int amount)
     {
-        throw new NotImplementedException();
+        return RemoveResource(type, amount);
+    }
+
+    private static bool RemoveResource(ResourceType type, int amount)
+    {
+        if (IsAvailable(type, amount))
+        {
+            _instance.resources[type] -= amount;
+            return true;
+        }
+        
+        return false;
     }
 }
