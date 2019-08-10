@@ -76,8 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324408aa88d2438eb9b5628bac64f1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 0
-  Length: 0
+  Width: 2
+  Length: 2
   IsWalkable: 0
 --- !u!1 &364326707779373591
 GameObject:
