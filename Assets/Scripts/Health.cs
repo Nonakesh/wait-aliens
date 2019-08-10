@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     public float MaxHealth;
-    public float CurrentHealth;
+    public float CurrentHealth { get; set; }
     public float RegenerationPerSecond;
     public float RegenerationTick = 1;
     public ResourceDrop[] Drops;
@@ -11,14 +12,12 @@ public class Health : MonoBehaviour
     public Transform DeathEffect;
     
     private float timeSinceLastRegeneration;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        
+        CurrentHealth = MaxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckDeathState();

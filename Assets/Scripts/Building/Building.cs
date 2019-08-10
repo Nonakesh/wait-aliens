@@ -8,6 +8,8 @@ public class Building : MonoBehaviour
     public int Width;
     public int Length;
 
+    public bool IsWalkable = false;
+    
     private bool isInitialized = false;
     
     public void Start()
@@ -30,7 +32,7 @@ public class Building : MonoBehaviour
             {
                 var point = new Point(x + startPoint.X, y + startPoint.Y);
                 
-                BlockTile(point);
+                BlockTile(point, IsWalkable);
             }
         }
         
@@ -43,11 +45,11 @@ public class Building : MonoBehaviour
 
     private readonly List<Point> blockedTiles = new List<Point>();
 
-    public void BlockTile(Point point)
+    public void BlockTile(Point point, bool isWalkable)
     {
         blockedTiles.Add(point);
 
-        GameGrid.Instance.BlockTile(this, point);
+        GameGrid.Instance.BlockTile(this, point, isWalkable);
     }
 
     // This one will probably not be needed.. I thought I would use this for moving units as well, but that would be too much work...

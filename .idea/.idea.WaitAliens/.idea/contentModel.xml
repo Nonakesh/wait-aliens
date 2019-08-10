@@ -16,7 +16,9 @@
           <e p="Camera" t="Include">
             <e p="CameraScript.cs" t="Include" />
           </e>
+          <e p="Construction.cs" t="Include" />
           <e p="Editor" t="Include">
+            <e p="BuildingEditor.cs" t="Include" />
             <e p="GameGridEditor.cs" t="Include" />
           </e>
           <e p="EnemyAI.cs" t="Include" />
@@ -24,6 +26,7 @@
           <e p="Grid" t="Include">
             <e p="FloorMovement.cs" t="Include" />
             <e p="GameGrid.cs" t="Include" />
+            <e p="IMovement.cs" t="Include" />
             <e p="TileResult.cs" t="Include" />
           </e>
           <e p="Health.cs" t="Include" />
@@ -43,7 +46,10 @@
             <e p="ResourceManager.cs" t="Include" />
             <e p="ResourceType.cs" t="Include" />
           </e>
-          <e p="Turret.cs" t="Include" />
+          <e p="TimeManager.cs" t="Include" />
+          <e p="Turret" t="Include">
+            <e p="TurretBehaviour.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
