@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
         throw new NotImplementedException();
     }
 
-    public void QuitGame()
+    public static void QuitGame()
     {
         Application.Quit();
     }
