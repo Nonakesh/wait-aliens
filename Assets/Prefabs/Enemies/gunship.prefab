@@ -119,7 +119,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3164802692764773264}
-  - component: {fileID: 6711403609781466385}
   m_Layer: 11
   m_Name: Turret
   m_TagString: Untagged
@@ -134,39 +133,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5506405887822411632}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6889700505057275361}
-  m_Father: {fileID: 6949119211819748021}
-  m_RootOrder: 1
+  - {fileID: 1503333596142253874}
+  m_Father: {fileID: 7304854103533373854}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6711403609781466385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5506405887822411632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f137aaff87c47469b4514c62c7b2b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  rotationSpeed: 100
-  barrel: {fileID: 6889700505057275361}
-  barrelOpenings:
-  - {fileID: 7717773639364701229}
-  viewDistance: 100
-  enemyLayerMask:
-    serializedVersion: 2
-    m_Bits: 4096
-  rateOfFire: 500
-  projectilePrefab: {fileID: 8545507659378700687, guid: 683b48584fad24d4e855866966f82b0c,
-    type: 3}
-  center: {fileID: 6949119211819748021}
 --- !u!1 &6209165096720873638
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +151,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6949119211819748021}
   - component: {fileID: 2669103871674180009}
-  - component: {fileID: 5479331901138817263}
   m_Layer: 11
   m_Name: gunship
   m_TagString: Untagged
@@ -197,7 +170,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5514509364357542619}
-  - {fileID: 3164802692764773264}
+  - {fileID: 7304854103533373854}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -214,31 +187,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.7, y: 3.5096188, z: 11.893311}
   m_Center: {x: 0, y: 0.037545204, z: -3.3429298}
---- !u!114 &5479331901138817263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6209165096720873638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f137aaff87c47469b4514c62c7b2b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  rotationSpeed: 100
-  barrel: {fileID: 6889700505057275361}
-  barrelOpenings:
-  - {fileID: 7717773639364701229}
-  viewDistance: 100
-  enemyLayerMask:
-    serializedVersion: 2
-    m_Bits: 4096
-  rateOfFire: 500
-  projectilePrefab: {fileID: 8545507659378700687, guid: 683b48584fad24d4e855866966f82b0c,
-    type: 3}
-  center: {fileID: 5514509364357542619}
 --- !u!1 &7214999746941550986
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,10 +214,10 @@ Transform:
   m_GameObject: {fileID: 7214999746941550986}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: -0.5487685, z: 1.1740971}
-  m_LocalScale: {x: 24.086464, y: 24.086456, z: 24.086456}
+  m_LocalScale: {x: 24.086464, y: 24.086449, z: 24.086449}
   m_Children:
   - {fileID: 7717773639364701229}
-  m_Father: {fileID: 3164802692764773264}
+  m_Father: {fileID: 1503333596142253874}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &765361379499989077
@@ -319,3 +267,92 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &8177679417361174773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1503333596142253874}
+  m_Layer: 11
+  m_Name: GunContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1503333596142253874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177679417361174773}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6889700505057275361}
+  m_Father: {fileID: 3164802692764773264}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9036816383764772778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7304854103533373854}
+  - component: {fileID: 2715199738207123283}
+  m_Layer: 11
+  m_Name: TurretContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7304854103533373854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9036816383764772778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3164802692764773264}
+  m_Father: {fileID: 6949119211819748021}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2715199738207123283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9036816383764772778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f137aaff87c47469b4514c62c7b2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  rotationSpeed: 100
+  barrel: {fileID: 1503333596142253874}
+  barrelOpenings:
+  - {fileID: 7717773639364701229}
+  viewDistance: 100
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  damage: 5
+  rateOfFire: 500
+  projectilePrefab: {fileID: 8545507659378700687, guid: 683b48584fad24d4e855866966f82b0c,
+    type: 3}
+  center: {fileID: 6949119211819748021}
