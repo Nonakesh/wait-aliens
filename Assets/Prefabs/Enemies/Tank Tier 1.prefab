@@ -394,7 +394,7 @@ MonoBehaviour:
   barrel: {fileID: 172683891490136266}
   barrelOpenings:
   - {fileID: 2152098072501318035}
-  viewDistance: 10
+  viewDistance: 15
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 4096

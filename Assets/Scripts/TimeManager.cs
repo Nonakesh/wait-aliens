@@ -15,12 +15,6 @@ public class TimeManager : MonoBehaviour
     [Header("Construction Menu")] 
     public GameObject constructionScrollView;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -42,14 +36,14 @@ public class TimeManager : MonoBehaviour
             Paused = false;
             constructionScrollView.SetActive(false);
             PauseButton.image.sprite = ClockSprite;
-            Debug.Log("Resuming...");
+            Time.timeScale = 1;
         }
         else
         {
             Paused = true;
             constructionScrollView.SetActive(true);
             PauseButton.image.sprite = PlaySprite;
-            Debug.Log("Slowing down time and pausing...");
+            Time.timeScale = 0;
         }
     }
 }
