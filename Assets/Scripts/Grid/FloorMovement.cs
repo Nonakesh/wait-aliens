@@ -2,13 +2,15 @@
 using PathFind;
 using UnityEngine;
 
-public class FloorMovement : MonoBehaviour
+[RequireComponent(typeof(Health))]
+public class FloorMovement : MonoBehaviour, IMovement
 {
-    [Header("Unit Settings")]
     public float MovementSpeed;
     
-    [Header("Runtime variables")]
-    public Point Target;
+    public Point Target { get; set; }
+
+    private Health _health;
+    public Health Health => _health ?? (_health = GetComponent<Health>());
 
     private const float Epsilon = 0.1f;
     
@@ -25,12 +27,22 @@ public class FloorMovement : MonoBehaviour
         {
             var path = GameGrid.Instance.FindPath(current, Target);
 
-            var next = path[0];
-            nextPos = GameGrid.Instance.PointToPosition(next) + GetGridOffset();
+            if (path.Count == 0)
+            {
+                nextPos = GameGrid.Instance.PointToPosition(current) + GetGridOffset();
+            }
+            else
+            {
+                var next = path[0];
+                nextPos = GameGrid.Instance.PointToPosition(next) + GetGridOffset();
+            }
         }
         
         Transform t = transform;
-        t.LookAt(nextPos);
+
+        var lookDirection = nextPos + t.forward * 0.01f - t.position;
+        lookDirection.y = 0;
+        t.rotation = Quaternion.LookRotation(lookDirection);
         
         var dist = nextPos - t.position;
 
@@ -43,5 +55,5 @@ public class FloorMovement : MonoBehaviour
         t.position += Vector3.ClampMagnitude(MovementSpeed * Time.deltaTime * dist.normalized, dist.magnitude);
     }
 
-    private static Vector3 GetGridOffset() => GameGrid.Instance.Scale * 0.5f * Vector3.one;
+    private static Vector3 GetGridOffset() => GameGrid.Instance.Scale * 0.5f * new Vector3(1, 0, 1);
 }
