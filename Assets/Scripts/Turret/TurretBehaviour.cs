@@ -12,6 +12,9 @@ public class TurretBehaviour : MonoBehaviour
     [SerializeField]
     private Transform barrel;
     [SerializeField]
+    private Transform[] barrelOpenings;
+    private int alternateIndex;
+    [SerializeField]
     private float viewDistance;
     [SerializeField]
     private LayerMask enemyLayerMask;
@@ -23,11 +26,11 @@ public class TurretBehaviour : MonoBehaviour
     private Transform center;
 
     private float timeOfLastShot;
+    private Vector3 originalRotation;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-
+        originalRotation = barrel.transform.localRotation.eulerAngles;
     }
 
     // Update is called once per frame
@@ -68,7 +71,7 @@ public class TurretBehaviour : MonoBehaviour
         if (barrel == null) return;
         float heightDif = center.position.y - target.transform.position.y;
         float barrelAngle = Mathf.Asin(heightDif / (target.position - center.position).magnitude) * 180f / Mathf.PI;
-        barrel.transform.localRotation = Quaternion.Euler(new Vector3(-90, -barrelAngle, 0));
+        barrel.transform.localRotation = Quaternion.Euler(originalRotation + new Vector3(0, -barrelAngle, 0));
     }
 
     void FindTarget()
@@ -104,25 +107,6 @@ public class TurretBehaviour : MonoBehaviour
         if (delta > delayBetweenShots)
         {
             Ray ray = new Ray(center.position, target.position - center.position);
-            /*RaycastHit hit;
-
-           if (Physics.Raycast(ray, out hit, viewDistance))
-           {
-               if (enemyLayerMask == (enemyLayerMask | (1 << hit.transform.gameObject.layer)))
-               {
-                   //direct line of sight
-                   //shoot
-
-                   timeOfLastShot = Time.time;
-
-                   var laser = Instantiate(laserPrefab);
-                   var behaviour = laser.GetComponent<LaserBehaviour>();
-
-                   behaviour.from = center.position;
-                   behaviour.to = target.position;
-                   behaviour.duration = 2f;
-               }
-           }*/
             var hits = Physics.RaycastAll(ray, viewDistance);
             var hit = FindClosestExceptSelf(hits, transform);
             if (hit != null)
@@ -137,7 +121,7 @@ public class TurretBehaviour : MonoBehaviour
                     var laser = Instantiate(projectilePrefab);
                     var behaviour = laser.GetComponent<ProjectileBehaviour>();
 
-                    behaviour.from = center.position;
+                    behaviour.from = GetBarrelOpening().position;
                     behaviour.to = target.position;
                     float dist = (behaviour.to - behaviour.from).magnitude;
                     behaviour.duration = dist / 300f;
@@ -163,5 +147,12 @@ public class TurretBehaviour : MonoBehaviour
         }
 
         return closest;
+    }
+
+    Transform GetBarrelOpening()
+    {
+        int len = barrelOpenings.Length;
+        int index = alternateIndex++ % len;
+        return barrelOpenings[index];
     }
 }
