@@ -585,6 +585,7 @@ MonoBehaviour:
   Width: 20
   Length: 20
   Scale: 2
+  UnitPenaltyScaling: 0.2
 --- !u!4 &963811148
 Transform:
   m_ObjectHideFlags: 0
@@ -776,6 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749260e0f5846a648a0000421c7538c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TargetDistance: 4
 --- !u!1 &1488745671
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8491600429701113883}
   - component: {fileID: 8491600429701113882}
   - component: {fileID: 7078074380949367760}
+  - component: {fileID: 7155700186805309022}
   - component: {fileID: 8491600429701113881}
   m_Layer: 0
   m_Name: Capsule
@@ -109,11 +110,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 10
-  CurrentHealth: 0
   RegenerationPerSecond: 0
   RegenerationTick: 1
   Drops: []
   DeathEffect: {fileID: 0}
+--- !u!114 &7155700186805309022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8491600429701113880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73408d5cd02d4193a805e92ae05f2cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8491600429701113881
 MonoBehaviour:
   m_ObjectHideFlags: 0

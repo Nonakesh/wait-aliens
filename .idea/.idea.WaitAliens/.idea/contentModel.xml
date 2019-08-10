@@ -27,9 +27,13 @@
             <e p="FloorMovement.cs" t="Include" />
             <e p="GameGrid.cs" t="Include" />
             <e p="IMovement.cs" t="Include" />
+            <e p="TargetRequester.cs" t="Include" />
             <e p="TileResult.cs" t="Include" />
           </e>
           <e p="Health.cs" t="Include" />
+          <e p="Laser" t="Include">
+            <e p="ProjectileBehaviour.cs" t="Include" />
+          </e>
           <e p="Mine" t="Include">
             <e p="MineBehaviour.cs" t="Include" />
             <e p="ResourceGenerator.cs" t="Include" />

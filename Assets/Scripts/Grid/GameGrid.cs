@@ -9,6 +9,10 @@ public class GameGrid : MonoBehaviour
     public int Width, Length;
     public float Scale;
 
+    public float UnitPenaltyScaling = 0.2f;
+    
+    public int[,] UnitsPerTile;
+    
     private Building[,] buildings;
     private Grid pathFinding;
 
@@ -24,6 +28,7 @@ public class GameGrid : MonoBehaviour
     private void Initialize()
     {
         buildings = new Building[Width, Length];
+        UnitsPerTile = new int[Width, Length];
 
         var costs = new float[Width, Length];
         for (int x = 0; x < Length; x++)
@@ -37,6 +42,19 @@ public class GameGrid : MonoBehaviour
         pathFinding = new Grid(Width, Length, costs);
     }
 
+    private void LateUpdate()
+    {
+        for (int x = 0; x < Length; x++)
+        {
+            for (int z = 0; z < Length; z++)
+            {
+                pathFinding.Nodes[x, z].Penalty = 1 + UnitsPerTile[x, z] * UnitPenaltyScaling;
+            }
+        }
+        
+        UnitsPerTile = new int[Width, Length];
+    }
+
     public TileResult GetTile(Point p)
     {
         if (p.X < 0 || p.X >= Width || p.Y < 0 || p.Y >= Length)
@@ -44,10 +62,10 @@ public class GameGrid : MonoBehaviour
             return new TileResult(true);
         }
         
-        return new TileResult(buildings[p.X, p.Y]);
+        return new TileResult(buildings[p.X, p.Y], pathFinding.Nodes[p.X, p.Y].Walkable, UnitsPerTile[p.X, p.Y]);
     }
     
-    public void BlockTile(Building blocker, Point p, bool blockWalking = true)
+    public void BlockTile(Building blocker, Point p, bool isWalkable = false)
     {
         var currentBlocker = GetTile(p);
 
@@ -62,7 +80,7 @@ public class GameGrid : MonoBehaviour
         }
 
         buildings[p.X, p.Y] = blocker;
-        pathFinding.Nodes[p.X, p.Y].Walkable = !blockWalking;
+        pathFinding.Nodes[p.X, p.Y].Walkable = isWalkable;
         
         // Spaghetti code events
         EnemyAI.Instance.UpdateGrid();
