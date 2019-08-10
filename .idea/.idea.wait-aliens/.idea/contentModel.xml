@@ -18,6 +18,7 @@
           </e>
           <e p="Construction.cs" t="Include" />
           <e p="Editor" t="Include">
+            <e p="BuildingEditor.cs" t="Include" />
             <e p="GameGridEditor.cs" t="Include" />
           </e>
           <e p="EnemyAI.cs" t="Include" />
@@ -25,9 +26,13 @@
           <e p="Grid" t="Include">
             <e p="FloorMovement.cs" t="Include" />
             <e p="GameGrid.cs" t="Include" />
+            <e p="IMovement.cs" t="Include" />
             <e p="TileResult.cs" t="Include" />
           </e>
           <e p="Health.cs" t="Include" />
+          <e p="Laser" t="Include">
+            <e p="ProjectileBehaviour.cs" t="Include" />
+          </e>
           <e p="Mine" t="Include">
             <e p="MineBehaviour.cs" t="Include" />
             <e p="ResourceGenerator.cs" t="Include" />
@@ -38,6 +43,7 @@
             <e p="PathFinding.cs" t="Include" />
             <e p="Point.cs" t="Include" />
           </e>
+          <e p="PauseMenu.cs" t="Include" />
           <e p="Resources" t="Include">
             <e p="ResourceDrop.cs" t="Include" />
             <e p="ResourceList.cs" t="Include" />
@@ -48,7 +54,6 @@
           <e p="Turret" t="Include">
             <e p="TurretBehaviour.cs" t="Include" />
           </e>
-          <e p="Turret.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
