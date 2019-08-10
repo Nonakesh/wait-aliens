@@ -16,6 +16,7 @@
           <e p="Camera" t="Include">
             <e p="CameraScript.cs" t="Include" />
           </e>
+          <e p="Construction.cs" t="Include" />
           <e p="Editor" t="Include">
             <e p="BuildingEditor.cs" t="Include" />
             <e p="GameGridEditor.cs" t="Include" />
@@ -44,6 +45,10 @@
             <e p="ResourceList.cs" t="Include" />
             <e p="ResourceManager.cs" t="Include" />
             <e p="ResourceType.cs" t="Include" />
+          </e>
+          <e p="TimeManager.cs" t="Include" />
+          <e p="Turret" t="Include">
+            <e p="TurretBehaviour.cs" t="Include" />
           </e>
           <e p="Turret.cs" t="Include" />
         </e>

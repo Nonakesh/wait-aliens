@@ -47,7 +47,7 @@ public class GameGrid : MonoBehaviour
         return new TileResult(buildings[p.X, p.Y]);
     }
     
-    public void BlockTile(Building blocker, Point p)
+    public void BlockTile(Building blocker, Point p, bool blockWalking = true)
     {
         var currentBlocker = GetTile(p);
 
@@ -62,7 +62,10 @@ public class GameGrid : MonoBehaviour
         }
 
         buildings[p.X, p.Y] = blocker;
-        pathFinding.Nodes[p.X, p.Y].Walkable = false;
+        pathFinding.Nodes[p.X, p.Y].Walkable = !blockWalking;
+        
+        // Spaghetti code events
+        EnemyAI.Instance.UpdateGrid();
     }
 
     public void UnblockTile(Building blocker, Point p)
@@ -82,6 +85,9 @@ public class GameGrid : MonoBehaviour
 
         buildings[p.X, p.Y] = null;
         pathFinding.Nodes[p.X, p.Y].Walkable = true;
+        
+        // Spaghetti code events
+        EnemyAI.Instance.UpdateGrid();
     }
 
     public Vector3 PointToPosition(Point p)
