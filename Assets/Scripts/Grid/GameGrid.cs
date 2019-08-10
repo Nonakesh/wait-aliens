@@ -83,7 +83,7 @@ public class GameGrid : MonoBehaviour
         pathFinding.Nodes[p.X, p.Y].Walkable = isWalkable;
         
         // Spaghetti code events
-        EnemyAI.Instance.UpdateGrid();
+        EnemyAI.Instance.RequestGridUpdate();
     }
 
     public void UnblockTile(Building blocker, Point p)
@@ -105,7 +105,7 @@ public class GameGrid : MonoBehaviour
         pathFinding.Nodes[p.X, p.Y].Walkable = true;
         
         // Spaghetti code events
-        EnemyAI.Instance.UpdateGrid();
+        EnemyAI.Instance.RequestGridUpdate();
     }
 
     public Vector3 PointToPosition(Point p)

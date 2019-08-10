@@ -14,7 +14,7 @@ public class TargetRequester : MonoBehaviour
 
         if (currentPoint == Movement.Target && turrets.All(x => x.target == null))
         {
-            Movement.Target = EnemyAI.Instance.GetNewTarget();
+            Movement.Target = EnemyAI.Instance.GetNewTarget() ?? currentPoint;
         }
     }
 }

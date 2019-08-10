@@ -2,8 +2,6 @@
 
 public class ResourceGenerator : MonoBehaviour
 {
-    public ResourceDrop[] Numbers;
-    
     public ResourceType Type;
     public float TickDuration = 10;
     public int ResourceDrop = 5;

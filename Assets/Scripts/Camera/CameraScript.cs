@@ -33,7 +33,7 @@ public class CameraScript : MonoBehaviour
             velocity = new Vector3(mouseHorizontal, 0, mouseVertical);
         }
         velocity *= speed;
-        Vector3 total = ClampVector(transform.position + velocity, minPosition, maxPosition);
+        Vector3 total = ClampVector(transform.position + velocity * Time.deltaTime, minPosition, maxPosition);
         transform.position = total;
     }
 

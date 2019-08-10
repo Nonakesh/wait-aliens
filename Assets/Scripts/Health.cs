@@ -6,13 +6,10 @@ public class Health : MonoBehaviour
     public float MaxHealth;
     public float CurrentHealth { get; set; }
     public float RegenerationPerSecond;
-    public float RegenerationTick = 1;
     public ResourceDrop[] Drops;
 
     public Transform DeathEffect;
     
-    private float timeSinceLastRegeneration;
-
     private void Awake()
     {
         CurrentHealth = MaxHealth;
@@ -40,12 +37,7 @@ public class Health : MonoBehaviour
 
     private void Regenerate()
     {
-        timeSinceLastRegeneration += Time.deltaTime;
-        if (timeSinceLastRegeneration >= RegenerationTick)
-        {
-            timeSinceLastRegeneration = 0;
-            CurrentHealth += RegenerationPerSecond;
-        }
+        CurrentHealth = Mathf.Min(MaxHealth, CurrentHealth + RegenerationPerSecond * Time.deltaTime);
     }
 
     private void CheckDeathState()

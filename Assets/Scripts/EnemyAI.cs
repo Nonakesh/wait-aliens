@@ -13,6 +13,8 @@ public class EnemyAI : MonoBehaviour
     public static EnemyAI Instance { get; private set; }
 
     private List<Point> PossibleTargets = new List<Point>();
+
+    private bool updateRequested = false;
     
     private void Awake()
     {
@@ -32,10 +34,24 @@ public class EnemyAI : MonoBehaviour
 
     public Point GetNewTarget()
     {
+        if (PossibleTargets.Count == 0)
+        {
+            return null;
+        }
+        
         return PossibleTargets[Random.Range(0, PossibleTargets.Count)];
     }
 
-    public void UpdateGrid()
+    private void LateUpdate()
+    {
+        if (updateRequested)
+        {
+            UpdateGrid();
+            updateRequested = false;
+        }
+    }
+
+    private void UpdateGrid()
     {
         PossibleTargets.Clear();
         
@@ -132,5 +148,10 @@ public class EnemyAI : MonoBehaviour
                 }
             }
         }
+    }
+    
+    public void RequestGridUpdate()
+    {
+        updateRequested = true;
     }
 }
