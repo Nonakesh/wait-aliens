@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4210032109558145049}
   - component: {fileID: 1731556280127140656}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: turretAA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 6754391602893287479}
   - component: {fileID: 3460789101606397372}
   - component: {fileID: 2427202010503444351}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 2707022469723682138}
   - component: {fileID: 764966398016254582}
   - component: {fileID: 5148205433062524446}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 5801250816737030905}
   - component: {fileID: 8203817036422096653}
   - component: {fileID: 6401133101326513126}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   rateOfFire: 400
-  projectilePrefab: {fileID: 7140508325201832443, guid: e9c85744a613ac245ad041f315e6b769,
+  projectilePrefab: {fileID: 6004028440527376978, guid: 86d944406d808d343a76589173ae9c3a,
     type: 3}
   center: {fileID: 7511607960063476693}
 --- !u!1 &6585417423836763640
@@ -325,7 +325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3377343406653798953}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Opening2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 1628697724586088567}
   - component: {fileID: 895070341797904441}
   - component: {fileID: 106497997484881287}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7511607960063476693}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1580574399959578875}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Opening1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 172683891490136266}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GunContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 622751670700004772}
   - component: {fileID: 6937260363435757850}
   - component: {fileID: 1578809999885481748}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 5249860388373993279}
   - component: {fileID: 703449132101173216}
   - component: {fileID: 6249561838297519027}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8738579441482853781}
   - component: {fileID: 6918483422297137611}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2152098072501318035}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Opening
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6674256375794912883}
   - component: {fileID: 2783635993630702734}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TurretContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ MonoBehaviour:
   viewDistance: 50
   enemyLayerMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 4096
   rateOfFire: 20
   projectilePrefab: {fileID: 7140508325201832443, guid: e9c85744a613ac245ad041f315e6b769,
     type: 3}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 760736770901263335}
   - component: {fileID: 8440796769494885761}
   - component: {fileID: 6625314620158910664}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 7402199036625631446}
   - component: {fileID: 5311176302046232570}
   - component: {fileID: 313769585285516178}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

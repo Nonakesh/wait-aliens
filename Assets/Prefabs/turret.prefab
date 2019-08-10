@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2827128019770706178}
   - component: {fileID: 9087285596368059208}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4091439487445261377}
   - component: {fileID: 1714539895844854637}
   - component: {fileID: 6495573306922675973}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 5608352562639084514}
   - component: {fileID: 7822506469738384918}
   - component: {fileID: 2722568352677231244}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8472892507429773423}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: turretContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6705100935695601442}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 850261012757082476}
   - component: {fileID: 1242181690824403234}
   - component: {fileID: 2030185875390815388}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 7583842111843031956}
   - component: {fileID: 1999860126270994176}
   - component: {fileID: 5312810107374249757}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 1043550640461682358}
   - component: {fileID: 2799687535651051806}
   - component: {fileID: 8502482830401506760}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2503255335527640216}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Opening
   m_TagString: Untagged
   m_Icon: {fileID: 0}
