@@ -21,8 +21,9 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Regenerate();
         CheckDeathState();
+        
+        Regenerate();
     }
     
     public void TakeDamage(float amount)

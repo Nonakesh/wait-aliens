@@ -8,11 +8,11 @@ public class ConstructionMenu : MonoBehaviour
 {
     public Material ValidPlacementMaterial;
     public Material InvalidPlacementMaterial;
-    
+
     public BuildingCost[] Buildings;
 
     private BuildingCost currentBuilding;
-    
+
     private void Update()
     {
         for (int i = 0; i <= 8; i++)
@@ -23,10 +23,7 @@ public class ConstructionMenu : MonoBehaviour
             }
         }
 
-        if (currentBuilding != null)
-        {
-            PlaceBuilding();
-        }
+        PlaceBuilding();
     }
 
     public void StartPlacingBuilding(int index)
@@ -38,16 +35,21 @@ public class ConstructionMenu : MonoBehaviour
 
         currentBuilding = Buildings[index];
     }
-    
+
     private void PlaceBuilding()
     {
+        if (currentBuilding == null)
+        {
+            return;
+        }
+
         // Right click aborts
         if (Input.GetMouseButtonDown(1))
         {
             currentBuilding = null;
             return;
         }
-        
+
         // Get the buildings position on the plane
         var (isValid, point, pos) = MousePosToBuildingCenter(currentBuilding.Building, Input.mousePosition);
 
@@ -55,7 +57,7 @@ public class ConstructionMenu : MonoBehaviour
         {
             return;
         }
-        
+
         // Draw the buildings grid
         bool buildingPlacementValid = true;
         for (int x = 0; x < currentBuilding.Building.Width; x++)
@@ -64,10 +66,10 @@ public class ConstructionMenu : MonoBehaviour
             {
                 var testPoint = new Point(point.X + x, point.Y + y);
                 var testPos = GameGrid.Instance.PointToPosition(testPoint);
-                
+
                 var isFree = GameGrid.Instance.GetTile(testPoint).IsFree;
                 buildingPlacementValid &= isFree;
-                
+
                 // Ugly direct mode! :D
                 var material = isFree ? ValidPlacementMaterial : InvalidPlacementMaterial;
 
@@ -76,18 +78,18 @@ public class ConstructionMenu : MonoBehaviour
                 {
                     vertices = new[]
                     {
-                        testPos, 
+                        testPos,
                         testPos + Vector3.forward * scale,
                         testPos + Vector3.right * scale + Vector3.forward * scale,
                         testPos + Vector3.right * scale,
                     },
-                    triangles = new []
+                    triangles = new[]
                     {
                         0, 1, 2,
                         0, 2, 3
                     }
                 };
-                
+
                 Graphics.DrawMesh(mesh, Matrix4x4.identity, material, 0);
             }
         }
@@ -95,20 +97,25 @@ public class ConstructionMenu : MonoBehaviour
         // Left click to build
         if (buildingPlacementValid && Input.GetMouseButtonDown(0))
         {
-            
+            // If there are enough resources, build the building, otherwise do nothing
+            if (ResourceManager.TryTakeResources(currentBuilding.Costs))
+            {
+                Instantiate(currentBuilding.Building, pos, Quaternion.identity);
+                currentBuilding = null;
+            }
         }
     }
 
     private (bool, Point, Vector3) MousePosToBuildingCenter(Building building, Vector3 mousePos)
     {
         var plane = new Plane(Vector3.up, Vector3.zero);
-        
+
         float planeDist;
         var ray = Camera.main.ScreenPointToRay(mousePos);
         if (plane.Raycast(ray, out planeDist))
         {
             var planePos = ray.origin + ray.direction * planeDist;
-            
+
 //            planePos.x -= building.Width * 0.5f * GameGrid.Instance.Scale;
 //            planePos.z -= building.Length * 0.5f * GameGrid.Instance.Scale;
 
