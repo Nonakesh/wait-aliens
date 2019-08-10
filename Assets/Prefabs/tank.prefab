@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 5249860388373993279}
   - component: {fileID: 703449132101173216}
   - component: {fileID: 6249561838297519027}
+  - component: {fileID: 1600303588341203088}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -159,6 +160,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1600303588341203088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856187244276898645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f137aaff87c47469b4514c62c7b2b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  rotationSpeed: 50
+  barrel: {fileID: 760736770901263335}
+  viewDistance: 50
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  rateOfFire: 20
+  projectilePrefab: {fileID: 7140508325201832443, guid: e9c85744a613ac245ad041f315e6b769,
+    type: 3}
+  center: {fileID: 5249860388373993279}
 --- !u!1 &5701260720017710982
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8738579441482853781}
+  - component: {fileID: 6918483422297137611}
   m_Layer: 0
   m_Name: tank
   m_TagString: Untagged
@@ -191,6 +216,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6918483422297137611
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5701260720017710982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1, z: 2}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1 &8528123088340062223
 GameObject:
   m_ObjectHideFlags: 0

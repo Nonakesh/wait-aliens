@@ -50,7 +50,6 @@
           <e p="Turret" t="Include">
             <e p="TurretBehaviour.cs" t="Include" />
           </e>
-          <e p="Turret.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
