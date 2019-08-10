@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Linq;
+using System.Text;
 using PathFind;
 using UnityEngine;
 
@@ -15,6 +16,20 @@ public class FloorMovement : MonoBehaviour, IMovement
     private const float Epsilon = 0.1f;
     
     private void Update()
+    {
+        var hasTarget = GetComponentsInChildren<TurretBehaviour>().Any(x => x.target != null);
+
+        if (!hasTarget)
+        {
+            UpdatePosition();
+        }
+
+        // Update position on grid for next frame
+        var current = GameGrid.Instance.PositionToPoint(transform.position);
+        GameGrid.Instance.UnitsPerTile[current.X, current.Y]++;
+    }
+
+    private void UpdatePosition()
     {
         var current = GameGrid.Instance.PositionToPoint(transform.position);
 
@@ -36,13 +51,13 @@ public class FloorMovement : MonoBehaviour, IMovement
             var next = path[0];
             nextPos = GameGrid.Instance.PointToPosition(next) + GetGridOffset();
         }
-        
+
         Transform t = transform;
 
         var lookDirection = nextPos + t.forward * 0.01f - t.position;
         lookDirection.y = 0;
         t.rotation = Quaternion.LookRotation(lookDirection);
-        
+
         var dist = nextPos - t.position;
 
         // Don't move if the distance is smaller than Epsilon
@@ -50,12 +65,8 @@ public class FloorMovement : MonoBehaviour, IMovement
         {
             return;
         }
-        
+
         t.position += Vector3.ClampMagnitude(MovementSpeed * Time.deltaTime * dist.normalized, dist.magnitude);
-        
-        // Update position on grid for next frame
-        current = GameGrid.Instance.PositionToPoint(transform.position);
-        GameGrid.Instance.UnitsPerTile[current.X, current.Y]++;
     }
 
     private static Vector3 GetGridOffset() => GameGrid.Instance.Scale * 0.5f * new Vector3(1, 0, 1);

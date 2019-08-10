@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 7140498349624492092}
   - component: {fileID: 448013149731166535}
   m_Layer: 10
-  m_Name: tank
+  m_Name: Tank Tier 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,7 +394,7 @@ MonoBehaviour:
   barrel: {fileID: 172683891490136266}
   barrelOpenings:
   - {fileID: 2152098072501318035}
-  viewDistance: 50
+  viewDistance: 10
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 4096

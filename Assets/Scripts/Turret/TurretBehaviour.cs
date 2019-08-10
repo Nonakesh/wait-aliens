@@ -111,7 +111,7 @@ public class TurretBehaviour : MonoBehaviour
             var hit = FindClosestExceptSelf(hits, transform);
             if (hit != null)
             {
-                if (enemyLayerMask == (enemyLayerMask | (1 << hit.transform.gameObject.layer)))
+                if ((enemyLayerMask & (1 << hit.gameObject.layer)) > 0)
                 {
                     //direct line of sight
                     //shoot
