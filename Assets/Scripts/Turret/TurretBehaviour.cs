@@ -7,21 +7,20 @@ public class TurretBehaviour : MonoBehaviour
     private const float ANGLE_THRESHOLD = 1f;
 
     public Health target;
-    [SerializeField]
-    private float rotationSpeed;
+    
+    public float Damage = 5;
+    public float RateOfFire;
+    public float RotationSpeed;
+    public float ViewDistance;
+    
     [SerializeField]
     private Transform barrel;
     [SerializeField]
     private Transform[] barrelOpenings;
     private int alternateIndex;
-    [SerializeField]
-    private float viewDistance;
+    
     [SerializeField]
     private LayerMask enemyLayerMask;
-    [SerializeField]
-    private float damage = 5;
-    [SerializeField]
-    private float rateOfFire;
     [SerializeField]
     private GameObject projectilePrefab;
     [SerializeField]
@@ -60,11 +59,11 @@ public class TurretBehaviour : MonoBehaviour
 
         if (angle > 0)
         {
-            angle = Mathf.Min(angle, rotationSpeed * Time.deltaTime);
+            angle = Mathf.Min(angle, RotationSpeed * Time.deltaTime);
         }
         else
         {
-            angle = Mathf.Max(angle, -rotationSpeed * Time.deltaTime);
+            angle = Mathf.Max(angle, -RotationSpeed * Time.deltaTime);
         }
 
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -80,7 +79,7 @@ public class TurretBehaviour : MonoBehaviour
     void FindTarget()
     {
         target = null;
-        var colliders = Physics.OverlapSphere(transform.position, viewDistance, enemyLayerMask.value);
+        var colliders = Physics.OverlapSphere(transform.position, ViewDistance, enemyLayerMask.value);
         if (colliders.Length > 0)
         {
             Collider closest = null;
@@ -104,7 +103,7 @@ public class TurretBehaviour : MonoBehaviour
 
     void ShootTarget()
     {
-        float delayBetweenShots = 60f / rateOfFire;
+        float delayBetweenShots = 60f / RateOfFire;
 
         float delta = Time.time - timeOfLastShot;
         if (delta > delayBetweenShots)
@@ -112,7 +111,7 @@ public class TurretBehaviour : MonoBehaviour
             var barrelPos = GetBarrelOpening().position;
             
             Ray ray = new Ray(barrelPos, target.WorldCenter - barrelPos);
-            var hits = Physics.RaycastAll(ray, viewDistance);
+            var hits = Physics.RaycastAll(ray, ViewDistance);
             var hit = FindClosestExceptSelf(hits, transform);
             if (hit != null)
             {
@@ -131,7 +130,7 @@ public class TurretBehaviour : MonoBehaviour
                     float dist = (behaviour.to - behaviour.from).magnitude;
                     behaviour.duration = dist / 300f;
 
-                    target.TakeDamage(damage);
+                    target.TakeDamage(Damage);
                 }
             }
         }
