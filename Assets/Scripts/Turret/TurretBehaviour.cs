@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class TurretBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    private Transform target;
+    private const float ANGLE_THRESHOLD = 1f;
+
+    public Transform target;
     [SerializeField]
     private float rotationSpeed;
     [SerializeField]
@@ -14,6 +15,14 @@ public class TurretBehaviour : MonoBehaviour
     private float viewDistance;
     [SerializeField]
     private LayerMask enemyLayerMask;
+    [SerializeField]
+    private float rateOfFire;
+    [SerializeField]
+    private GameObject projectilePrefab;
+    [SerializeField]
+    private Transform center;
+
+    private float timeOfLastShot;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +39,19 @@ public class TurretBehaviour : MonoBehaviour
         if (target == null) return;
 
         Vector3 forward = transform.right;
-        Vector3 targetVector = target.position - transform.position;
+        forward.y = 0;
+        Vector3 targetPos = target.position;
+        targetPos.y = 0;
+        Vector3 ownPos = center.position;
+        ownPos.y = 0;
+        Vector3 targetVector = targetPos - ownPos;
         float angle = -Vector3.SignedAngle(forward, targetVector, Vector3.up);
-        float temp = angle;
+
+        if (Mathf.Abs(angle) < ANGLE_THRESHOLD)
+        {
+            ShootTarget();
+        }
+
         if (angle > 0)
         {
             angle = Mathf.Min(angle, rotationSpeed * Time.deltaTime);
@@ -47,13 +66,14 @@ public class TurretBehaviour : MonoBehaviour
 
         //barrel
         if (barrel == null) return;
-        float heightDif = transform.position.y - target.transform.position.y;
-        float barrelAngle = Mathf.Asin(heightDif / targetVector.magnitude) * 180f / Mathf.PI;
+        float heightDif = center.position.y - target.transform.position.y;
+        float barrelAngle = Mathf.Asin(heightDif / (target.position - center.position).magnitude) * 180f / Mathf.PI;
         barrel.transform.localRotation = Quaternion.Euler(new Vector3(-90, -barrelAngle, 0));
     }
 
     void FindTarget()
     {
+        target = null;
         var colliders = Physics.OverlapSphere(transform.position, viewDistance, enemyLayerMask.value);
         if (colliders.Length > 0)
         {
@@ -74,5 +94,74 @@ public class TurretBehaviour : MonoBehaviour
                 target = closest.transform;
             }
         }
+    }
+
+    void ShootTarget()
+    {
+        float delayBetweenShots = 60f / rateOfFire;
+
+        float delta = Time.time - timeOfLastShot;
+        if (delta > delayBetweenShots)
+        {
+            Ray ray = new Ray(center.position, target.position - center.position);
+            /*RaycastHit hit;
+
+           if (Physics.Raycast(ray, out hit, viewDistance))
+           {
+               if (enemyLayerMask == (enemyLayerMask | (1 << hit.transform.gameObject.layer)))
+               {
+                   //direct line of sight
+                   //shoot
+
+                   timeOfLastShot = Time.time;
+
+                   var laser = Instantiate(laserPrefab);
+                   var behaviour = laser.GetComponent<LaserBehaviour>();
+
+                   behaviour.from = center.position;
+                   behaviour.to = target.position;
+                   behaviour.duration = 2f;
+               }
+           }*/
+            var hits = Physics.RaycastAll(ray, viewDistance);
+            var hit = FindClosestExceptSelf(hits, transform);
+            if (hit != null)
+            {
+                if (enemyLayerMask == (enemyLayerMask | (1 << hit.transform.gameObject.layer)))
+                {
+                    //direct line of sight
+                    //shoot
+
+                    timeOfLastShot = Time.time;
+
+                    var laser = Instantiate(projectilePrefab);
+                    var behaviour = laser.GetComponent<ProjectileBehaviour>();
+
+                    behaviour.from = center.position;
+                    behaviour.to = target.position;
+                    float dist = (behaviour.to - behaviour.from).magnitude;
+                    behaviour.duration = dist / 300f;
+                }
+            }
+        }
+    }
+
+    Transform FindClosestExceptSelf(RaycastHit[] hits, Transform self)
+    {
+        float min = float.MaxValue;
+        Transform closest = null;
+
+        foreach (var c in hits)
+        {
+            if (c.transform == self) continue;
+            float sqr = (c.transform.position - self.position).sqrMagnitude;
+            if (sqr < min)
+            {
+                min = sqr;
+                closest = c.transform;
+            }
+        }
+
+        return closest;
     }
 }
