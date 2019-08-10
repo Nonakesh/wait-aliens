@@ -67,7 +67,7 @@ public class ConstructionMenu : MonoBehaviour
                 var testPoint = new Point(point.X + x, point.Y + y);
                 var testPos = GameGrid.Instance.PointToPosition(testPoint);
 
-                var isFree = GameGrid.Instance.GetTile(testPoint).IsFree;
+                var isFree = GameGrid.Instance.GetTile(testPoint).IsBuildable;
                 buildingPlacementValid &= isFree;
 
                 // Ugly direct mode! :D

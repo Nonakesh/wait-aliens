@@ -13,6 +13,8 @@ public class EnemyAI : MonoBehaviour
     public static EnemyAI Instance { get; private set; }
 
     private List<Point> PossibleTargets = new List<Point>();
+
+    private bool updateRequested = false;
     
     private void Awake()
     {
@@ -32,10 +34,24 @@ public class EnemyAI : MonoBehaviour
 
     public Point GetNewTarget()
     {
+        if (PossibleTargets.Count == 0)
+        {
+            return null;
+        }
+        
         return PossibleTargets[Random.Range(0, PossibleTargets.Count)];
     }
 
-    public void UpdateGrid()
+    private void LateUpdate()
+    {
+        if (updateRequested)
+        {
+            UpdateGrid();
+            updateRequested = false;
+        }
+    }
+
+    private void UpdateGrid()
     {
         PossibleTargets.Clear();
         
@@ -48,6 +64,13 @@ public class EnemyAI : MonoBehaviour
         while (list.Count > 0)
         {
             var point = list.Dequeue();
+            
+            // Skip if this point was visited before
+            if (reachable[point.X, point.Y])
+            {
+                continue;
+            }
+            
             reachable[point.X, point.Y] = true;
 
             bool isEnemyNeighbor = false;
@@ -59,21 +82,24 @@ public class EnemyAI : MonoBehaviour
 
                     // Check if the point is on the grid and free
                     var tileResult = GameGrid.Instance.GetTile(newPoint);
-                    if (tileResult.Building != null)
-                    {
-                        isEnemyNeighbor = true;
-                    }
-                    
-                    if (!tileResult.IsFree)
+
+                    if (tileResult.IsOutside)
                     {
                         continue;
                     }
                     
-                    // Check if the grid was visited before
-                    if (!reachable[point.X + x, point.Y + y])
+                    // Check if the tile is next to a player building
+                    if (!tileResult.IsWalkable)
                     {
-                        list.Enqueue(newPoint);
+                        if (tileResult.Building != null)
+                        {
+                            isEnemyNeighbor = true;
+                        }
+                        
+                        continue;
                     }
+                    
+                    list.Enqueue(newPoint);
                 }
             }
             
@@ -122,5 +148,10 @@ public class EnemyAI : MonoBehaviour
                 }
             }
         }
+    }
+    
+    public void RequestGridUpdate()
+    {
+        updateRequested = true;
     }
 }

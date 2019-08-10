@@ -2,7 +2,7 @@
 using PathFind;
 using UnityEngine;
 
-[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Health), typeof(TargetRequester))]
 public class FloorMovement : MonoBehaviour, IMovement
 {
     public float MovementSpeed;
@@ -29,13 +29,12 @@ public class FloorMovement : MonoBehaviour, IMovement
 
             if (path.Count == 0)
             {
-                nextPos = GameGrid.Instance.PointToPosition(current) + GetGridOffset();
+                Target = current;
+                return;
             }
-            else
-            {
-                var next = path[0];
-                nextPos = GameGrid.Instance.PointToPosition(next) + GetGridOffset();
-            }
+
+            var next = path[0];
+            nextPos = GameGrid.Instance.PointToPosition(next) + GetGridOffset();
         }
         
         Transform t = transform;
@@ -53,6 +52,10 @@ public class FloorMovement : MonoBehaviour, IMovement
         }
         
         t.position += Vector3.ClampMagnitude(MovementSpeed * Time.deltaTime * dist.normalized, dist.magnitude);
+        
+        // Update position on grid for next frame
+        current = GameGrid.Instance.PositionToPoint(transform.position);
+        GameGrid.Instance.UnitsPerTile[current.X, current.Y]++;
     }
 
     private static Vector3 GetGridOffset() => GameGrid.Instance.Scale * 0.5f * new Vector3(1, 0, 1);
