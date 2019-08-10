@@ -6,14 +6,17 @@ using UnityEngine;
 public class FloorMovement : MonoBehaviour, IMovement
 {
     public float MovementSpeed;
-    
+    public float LerpSpeed;
     public Point Target { get; set; }
 
     private Health _health;
     public Health Health => _health ?? (_health = GetComponent<Health>());
 
     private const float Epsilon = 0.1f;
-    
+
+    private Vector3 targetPosition;
+    private Quaternion targetRotation;
+
     private void Update()
     {
         var current = GameGrid.Instance.PositionToPoint(transform.position);
@@ -36,13 +39,13 @@ public class FloorMovement : MonoBehaviour, IMovement
             var next = path[0];
             nextPos = GameGrid.Instance.PointToPosition(next) + GetGridOffset();
         }
-        
+
         Transform t = transform;
 
         var lookDirection = nextPos + t.forward * 0.01f - t.position;
         lookDirection.y = 0;
-        t.rotation = Quaternion.LookRotation(lookDirection);
-        
+        targetRotation = Quaternion.LookRotation(lookDirection);
+
         var dist = nextPos - t.position;
 
         // Don't move if the distance is smaller than Epsilon
@@ -50,9 +53,12 @@ public class FloorMovement : MonoBehaviour, IMovement
         {
             return;
         }
-        
-        t.position += Vector3.ClampMagnitude(MovementSpeed * Time.deltaTime * dist.normalized, dist.magnitude);
-        
+
+        targetPosition = t.position + Vector3.ClampMagnitude(MovementSpeed * Time.deltaTime * dist.normalized, dist.magnitude);
+
+        t.position = targetPosition;
+        t.rotation = Quaternion.Lerp(t.rotation, targetRotation, LerpSpeed * Time.deltaTime);
+
         // Update position on grid for next frame
         current = GameGrid.Instance.PositionToPoint(transform.position);
         GameGrid.Instance.UnitsPerTile[current.X, current.Y]++;
