@@ -181,13 +181,13 @@ MonoBehaviour:
   barrelOpenings:
   - {fileID: 6797574027183513597}
   - {fileID: 673577041233276449}
-  viewDistance: 100
+  viewDistance: 15
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 2048
-  damage: 5
+  damage: 1
   rateOfFire: 400
-  projectilePrefab: {fileID: 7140508325201832443, guid: e9c85744a613ac245ad041f315e6b769,
+  projectilePrefab: {fileID: 6004028440527376978, guid: 86d944406d808d343a76589173ae9c3a,
     type: 3}
   center: {fileID: 7356992906961207445}
 --- !u!1 &706659265421644628

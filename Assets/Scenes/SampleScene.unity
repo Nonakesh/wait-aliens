@@ -744,7 +744,7 @@ MonoBehaviour:
     - {fileID: 8792120914282921001, guid: a14469bcd4889294b954833c78a5f06a, type: 3}
     - {fileID: 8792120914282921001, guid: a14469bcd4889294b954833c78a5f06a, type: 3}
     - {fileID: 8792120914282921001, guid: a14469bcd4889294b954833c78a5f06a, type: 3}
-    - {fileID: 8792120914282921001, guid: a14469bcd4889294b954833c78a5f06a, type: 3}
+    - {fileID: 4585675833363013994, guid: 45f936bbff8c4394f85cab89b1b81b0e, type: 3}
     SpawnTime: 1
     SpawnAmount: 1
     WaveCooldown: 3
@@ -4138,7 +4138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00003800599}
+  m_AnchoredPosition: {x: 0, y: 0.00012741057}
   m_SizeDelta: {x: 0, y: 597.1}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1011189011491863698
