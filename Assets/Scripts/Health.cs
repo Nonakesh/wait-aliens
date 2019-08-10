@@ -21,8 +21,9 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Regenerate();
         CheckDeathState();
+        
+        Regenerate();
     }
     
     public void TakeDamage(float amount)
@@ -58,6 +59,13 @@ public class Health : MonoBehaviour
             {
                 var t = transform;
                 Instantiate(DeathEffect, t.position, t.rotation);
+            }
+
+            // Unblock the grid on death
+            var building = GetComponent<Building>();
+            if (building != null)
+            {
+                building.UnblockAll();
             }
             
             Destroy(gameObject);
