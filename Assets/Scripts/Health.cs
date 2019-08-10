@@ -3,15 +3,22 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public Vector3 Center;
+
+    public Vector3 WorldCenter => t.TransformPoint(Center);
+
     public float MaxHealth;
     public float CurrentHealth { get; set; }
     public float RegenerationPerSecond;
     public ResourceDrop[] Drops;
 
     public Transform DeathEffect;
-    
+
+    private Transform t;
+
     private void Awake()
     {
+        t = transform;
         CurrentHealth = MaxHealth;
     }
 
