@@ -1,13 +1,16 @@
 ﻿
+using System;
+
 namespace PathFind
 {
-    /**
-    * A 2d point on the grid
-    */
+    /// <summary>
+    /// A 2d point on the grid 
+    /// </summary>
+    [Serializable]
     public class Point
     {
-        public readonly int X;
-        public readonly int Y;
+        public int X;
+        public int Y;
 
         public Point()
         {
@@ -80,5 +83,7 @@ namespace PathFind
         {
             return !(a == b);
         }
+
+        public override string ToString() => $"({X}, {Y})";
     }
 }

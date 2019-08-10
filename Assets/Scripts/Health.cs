@@ -60,6 +60,13 @@ public class Health : MonoBehaviour
                 var t = transform;
                 Instantiate(DeathEffect, t.position, t.rotation);
             }
+
+            // Unblock the grid on death
+            var building = GetComponent<Building>();
+            if (building != null)
+            {
+                building.UnblockAll();
+            }
             
             Destroy(gameObject);
         }

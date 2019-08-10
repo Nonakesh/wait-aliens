@@ -8,29 +8,41 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
-          <e p="Building.cs" t="Include" />
-          <e p="BuildingCost.cs" t="Include" />
-          <e p="ConstructionMenu.cs" t="Include" />
+          <e p="Building" t="Include">
+            <e p="Building.cs" t="Include" />
+            <e p="BuildingCost.cs" t="Include" />
+            <e p="ConstructionMenu.cs" t="Include" />
+          </e>
+          <e p="Camera" t="Include">
+            <e p="CameraScript.cs" t="Include" />
+          </e>
           <e p="Editor" t="Include">
             <e p="GameGridEditor.cs" t="Include" />
           </e>
           <e p="EnemyAI.cs" t="Include" />
           <e p="EnemySpawner.cs" t="Include" />
-          <e p="FloorMovement.cs" t="Include" />
-          <e p="GameGrid.cs" t="Include" />
+          <e p="Grid" t="Include">
+            <e p="FloorMovement.cs" t="Include" />
+            <e p="GameGrid.cs" t="Include" />
+            <e p="TileResult.cs" t="Include" />
+          </e>
           <e p="Health.cs" t="Include" />
+          <e p="Mine" t="Include">
+            <e p="MineBehaviour.cs" t="Include" />
+            <e p="ResourceGenerator.cs" t="Include" />
+          </e>
           <e p="PathFinding" t="Include">
             <e p="Grid.cs" t="Include" />
             <e p="Node.cs" t="Include" />
             <e p="PathFinding.cs" t="Include" />
             <e p="Point.cs" t="Include" />
           </e>
-          <e p="ResourceDrop.cs" t="Include" />
-          <e p="ResourceGenerator.cs" t="Include" />
-          <e p="ResourceList.cs" t="Include" />
-          <e p="ResourceManager.cs" t="Include" />
-          <e p="ResourceType.cs" t="Include" />
-          <e p="TileResult.cs" t="Include" />
+          <e p="Resources" t="Include">
+            <e p="ResourceDrop.cs" t="Include" />
+            <e p="ResourceList.cs" t="Include" />
+            <e p="ResourceManager.cs" t="Include" />
+            <e p="ResourceType.cs" t="Include" />
+          </e>
           <e p="Turret.cs" t="Include" />
         </e>
       </e>
