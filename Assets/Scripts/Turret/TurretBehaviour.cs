@@ -51,9 +51,6 @@ public class TurretBehaviour : MonoBehaviour
         ownPos.y = 0;
         Vector3 targetVector = targetPos - ownPos;
 
-        Debug.DrawRay(transform.position, targetVector * 100, Color.yellow);
-        Debug.DrawRay(transform.position, forward * 100, Color.green);
-
         float angle = -Vector3.SignedAngle(forward, targetVector, Vector3.up);
 
         if (Mathf.Abs(angle) < ANGLE_THRESHOLD)
