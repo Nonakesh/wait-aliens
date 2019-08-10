@@ -112,7 +112,9 @@ public class TurretBehaviour : MonoBehaviour
         float delta = Time.time - timeOfLastShot;
         if (delta > delayBetweenShots)
         {
-            Ray ray = new Ray(center.position, target.WorldCenter - center.position);
+            var barrelPos = GetBarrelOpening().position;
+            
+            Ray ray = new Ray(barrelPos, target.WorldCenter - barrelPos);
             var hits = Physics.RaycastAll(ray, viewDistance);
             var hit = FindClosestExceptSelf(hits, transform);
             if (hit != null)
@@ -127,7 +129,7 @@ public class TurretBehaviour : MonoBehaviour
                     var laser = Instantiate(projectilePrefab);
                     var behaviour = laser.GetComponent<ProjectileBehaviour>();
 
-                    behaviour.from = GetBarrelOpening().position;
+                    behaviour.from = barrelPos;
                     behaviour.to = target.WorldCenter;
                     float dist = (behaviour.to - behaviour.from).magnitude;
                     behaviour.duration = dist / 300f;

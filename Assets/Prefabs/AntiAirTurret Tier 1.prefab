@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14108a65551ad0644b464020d7a37a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Center: {x: 3, y: 3, z: 1}
   MaxHealth: 10
   RegenerationPerSecond: 1
   Drops: []
@@ -184,6 +185,7 @@ MonoBehaviour:
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 2048
+  damage: 5
   rateOfFire: 400
   projectilePrefab: {fileID: 7140508325201832443, guid: e9c85744a613ac245ad041f315e6b769,
     type: 3}

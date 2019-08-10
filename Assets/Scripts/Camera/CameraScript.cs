@@ -10,6 +10,10 @@ public class CameraScript : MonoBehaviour
     private Vector3 maxPosition;
     [SerializeField]
     private float speed;
+    
+    [Header("Mouse")]
+    [SerializeField]
+    private bool mouseMovementEnabled;
     [SerializeField]
     private int mouseBorderWidth = 50;
 
@@ -22,11 +26,11 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 velocity = new Vector3(horizontal, 0, vertical);
-        if(velocity == Vector3.zero)
+        if(velocity == Vector3.zero && mouseMovementEnabled)
         {
             float mouseHorizontal = GetMouseHorizontal();
             float mouseVertical = GetMouseVertical();
