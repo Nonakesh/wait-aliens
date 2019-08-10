@@ -45,6 +45,9 @@
             <e p="ResourceType.cs" t="Include" />
           </e>
           <e p="TimeManager.cs" t="Include" />
+          <e p="Turret" t="Include">
+            <e p="TurretBehaviour.cs" t="Include" />
+          </e>
           <e p="Turret.cs" t="Include" />
         </e>
       </e>
