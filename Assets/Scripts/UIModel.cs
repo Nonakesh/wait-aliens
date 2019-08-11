@@ -24,7 +24,8 @@ public class UIModel : MonoBehaviour
         model.position = (Horizontal * Vertical * corners[0] +
                           Horizontal * invVertical * corners[1] +
                           invHorizonal * invVertical * corners[2] +
-                          invHorizonal * Vertical * corners[3]);
+                          invHorizonal * Vertical * corners[3])
+            - t.forward * 200;
 
         model.Rotate(rotationSpeed * Time.unscaledDeltaTime * Vector3.up, Space.Self);
         model.gameObject.SetActive(true);

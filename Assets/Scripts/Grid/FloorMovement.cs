@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using PathFind;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class FloorMovement : MonoBehaviour, IMovement
 
     private Vector3 targetPosition;
     private Quaternion targetRotation;
+
+    public List<Point> Path { get; set; }
 
     private void Update()
     {
@@ -43,15 +46,19 @@ public class FloorMovement : MonoBehaviour, IMovement
         }
         else
         {
-            var path = GameGrid.Instance.FindPath(current, Target);
+            if (current == Path[0] && Path.Count > 1)
+            {
+                Path.RemoveAt(0);
+            }
 
-            if (path.Count == 0)
+            // If the pathfinder didn't find anything, abort
+            if (Path.Count == 0)
             {
                 Target = current;
                 return;
             }
 
-            var next = path[0];
+            var next = Path[0];
             nextPos = GameGrid.Instance.PointToPosition(next) + GetGridOffset();
         }
 

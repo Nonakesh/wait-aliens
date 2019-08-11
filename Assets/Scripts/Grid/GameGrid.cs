@@ -44,13 +44,14 @@ public class GameGrid : MonoBehaviour
 
     private void LateUpdate()
     {
-        for (int x = 0; x < Length; x++)
-        {
-            for (int z = 0; z < Length; z++)
-            {
-                pathFinding.Nodes[x, z].Penalty = 1 + UnitsPerTile[x, z] * UnitPenaltyScaling;
-            }
-        }
+        // Penalty for enemies staying at the same spot
+//        for (int x = 0; x < Length; x++)
+//        {
+//            for (int z = 0; z < Length; z++)
+//            {
+//                pathFinding.Nodes[x, z].Penalty = 1 + UnitsPerTile[x, z] * UnitPenaltyScaling;
+//            }
+//        }
         
         UnitsPerTile = new int[Width, Length];
     }

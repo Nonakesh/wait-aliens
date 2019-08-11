@@ -30,6 +30,11 @@ public class EnemyAI : MonoBehaviour
     {
         // Remove all dead units from the list
         Units.RemoveAll(x => x == null);
+
+        foreach (var unit in Units)
+        {
+            
+        }
     }
 
     public Point GetNewTarget()
