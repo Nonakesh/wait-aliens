@@ -64,8 +64,8 @@ MonoBehaviour:
   - {fileID: 4585675833363013994, guid: 45f936bbff8c4394f85cab89b1b81b0e, type: 3}
   Waves:
   - Difficulty: 0
-    Enemies: 0100000000000000
+    Enemies: 0a00000000000000
     SpawnTime: 1
-    SpawnAmount: 6
-    WaveCooldown: 10
+    SpawnAmount: 10
+    WaveCooldown: 20
   DifficultyIncreaseTime: 60

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public interface IMovement
 {
+    Point Position { get; }
+    
     Point Target { get; set; }
     
     Health Health { get; }

@@ -9,6 +9,7 @@ public class FloorMovement : MonoBehaviour, IMovement
 {
     public float MovementSpeed;
     public float RotationSpeed;
+    public Point Position => GameGrid.Instance.PositionToPoint(transform.position);
     public Point Target { get; set; }
 
     private Health _health;
@@ -21,6 +22,11 @@ public class FloorMovement : MonoBehaviour, IMovement
 
     public List<Point> Path { get; set; }
 
+    private void Awake()
+    {
+        Path = new List<Point>();
+    }    
+    
     private void Update()
     {
         var hasTarget = GetComponentsInChildren<TurretBehaviour>().Any(x => x.target != null);

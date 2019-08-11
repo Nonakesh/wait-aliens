@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class EnemyAI : MonoBehaviour
 {
     public int TargetDistance = 2;
-    
+
     public List<IMovement> Units = new List<IMovement>();
 
     public static EnemyAI Instance { get; private set; }
@@ -15,14 +15,14 @@ public class EnemyAI : MonoBehaviour
     private List<Point> PossibleTargets = new List<Point>();
 
     private bool updateRequested = false;
-    
+
     private void Awake()
     {
         if (Instance != null)
         {
             throw new InvalidOperationException("There is more than one instance of EnemyAI in this scene.");
         }
-        
+
         Instance = this;
     }
 
@@ -33,8 +33,17 @@ public class EnemyAI : MonoBehaviour
 
         foreach (var unit in Units)
         {
-            
+            if (unit.Path == null || unit.Path.Count <= 1)
+            {
+                UpdateUnitTarget(unit);
+            }
         }
+    }
+
+    private void UpdateUnitTarget(IMovement unit)
+    {
+        unit.Target = GetNewTarget();
+        unit.Path = GameGrid.Instance.FindPath(unit.Position, unit.Target);
     }
 
     public Point GetNewTarget()
@@ -43,7 +52,7 @@ public class EnemyAI : MonoBehaviour
         {
             return null;
         }
-        
+
         return PossibleTargets[Random.Range(0, PossibleTargets.Count)];
     }
 
@@ -59,7 +68,7 @@ public class EnemyAI : MonoBehaviour
     private void UpdateGrid()
     {
         PossibleTargets.Clear();
-        
+
         // Find all reachable tiles that are directly neighboring enemies
         var list = new Queue<Point>();
         var reachable = new bool[GameGrid.Instance.Width, GameGrid.Instance.Length];
@@ -69,13 +78,13 @@ public class EnemyAI : MonoBehaviour
         while (list.Count > 0)
         {
             var point = list.Dequeue();
-            
+
             // Skip if this point was visited before
             if (reachable[point.X, point.Y])
             {
                 continue;
             }
-            
+
             reachable[point.X, point.Y] = true;
 
             bool isEnemyNeighbor = false;
@@ -92,7 +101,7 @@ public class EnemyAI : MonoBehaviour
                     {
                         continue;
                     }
-                    
+
                     // Check if the tile is next to a player building
                     if (!tileResult.IsWalkable)
                     {
@@ -100,20 +109,20 @@ public class EnemyAI : MonoBehaviour
                         {
                             isEnemyNeighbor = true;
                         }
-                        
+
                         continue;
                     }
-                    
+
                     list.Enqueue(newPoint);
                 }
             }
-            
+
             if (isEnemyNeighbor)
             {
                 enemyNeighbor.Add(point);
             }
         }
-        
+
         // Dilute target list
         var dilutionVisited = new bool[GameGrid.Instance.Width, GameGrid.Instance.Length];
         foreach (var point in enemyNeighbor)
@@ -127,15 +136,15 @@ public class EnemyAI : MonoBehaviour
                     {
                         continue;
                     }
-                    
+
                     var p = new Point(point.X + x, point.Y + y);
-                    
+
                     // Check out of bounds
                     if (p.X < 0 || p.X >= GameGrid.Instance.Width || p.Y < 0 || p.Y >= GameGrid.Instance.Length)
                     {
                         continue;
                     }
-                    
+
                     // Check if the point is reachable
                     if (!reachable[p.X, p.Y])
                     {
@@ -153,8 +162,17 @@ public class EnemyAI : MonoBehaviour
                 }
             }
         }
+
+        // Remove all dead units from the list
+        Units.RemoveAll(x => x == null);
+        
+        // Update all units
+        foreach (var unit in Units)
+        {
+            UpdateUnitTarget(unit);
+        }
     }
-    
+
     public void RequestGridUpdate()
     {
         updateRequested = true;
