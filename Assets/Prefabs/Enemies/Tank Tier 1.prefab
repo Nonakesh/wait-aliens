@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 7140498349624492092}
   - component: {fileID: 448013149731166535}
   m_Layer: 10
-  m_Name: tank
+  m_Name: Tank Tier 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,8 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14108a65551ad0644b464020d7a37a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Center: {x: 0, y: 0, z: 0}
-  MaxHealth: 1
+  Center: {x: 0, y: 0.5, z: 0}
+  MaxHealth: 5
   RegenerationPerSecond: 0.5
   Drops:
   - Type: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 5
-  LerpSpeed: 3
+  RotationSpeed: 3
 --- !u!1 &6309289302879773285
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,16 +392,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  rotationSpeed: 50
+  Damage: 3
+  RateOfFire: 100
+  RotationSpeed: 100
+  ViewDistance: 12
   barrel: {fileID: 172683891490136266}
   barrelOpenings:
   - {fileID: 2152098072501318035}
-  viewDistance: 50
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 4096
-  damage: 5
-  rateOfFire: 20
   projectilePrefab: {fileID: 7140508325201832443, guid: e9c85744a613ac245ad041f315e6b769,
     type: 3}
   center: {fileID: 5249860388373993279}

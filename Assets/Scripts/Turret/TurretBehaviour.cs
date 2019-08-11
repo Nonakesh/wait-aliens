@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class TurretBehaviour : MonoBehaviour
 {
-    private const float ANGLE_THRESHOLD = 1f;
+    private const float ANGLE_THRESHOLD = 5f;
 
     public Health target;
-    [SerializeField]
-    private float rotationSpeed;
+    
+    public float Damage = 5;
+    public float RateOfFire;
+    public float RotationSpeed;
+    public float ViewDistance;
+    
     [SerializeField]
     private Transform barrel;
     [SerializeField]
     private Transform[] barrelOpenings;
     private int alternateIndex;
-    [SerializeField]
-    private float viewDistance;
+    
     [SerializeField]
     private LayerMask enemyLayerMask;
-    [SerializeField]
-    private float damage = 5;
-    [SerializeField]
-    private float rateOfFire;
     [SerializeField]
     private GameObject projectilePrefab;
     [SerializeField]
@@ -60,11 +59,11 @@ public class TurretBehaviour : MonoBehaviour
 
         if (angle > 0)
         {
-            angle = Mathf.Min(angle, rotationSpeed * Time.deltaTime);
+            angle = Mathf.Min(angle, RotationSpeed * Time.deltaTime);
         }
         else
         {
-            angle = Mathf.Max(angle, -rotationSpeed * Time.deltaTime);
+            angle = Mathf.Max(angle, -RotationSpeed * Time.deltaTime);
         }
 
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -72,7 +71,7 @@ public class TurretBehaviour : MonoBehaviour
 
         //barrel
         if (barrel == null) return;
-        float heightDif = center.position.y - target.transform.position.y;
+        float heightDif = center.position.y - target.WorldCenter.y;
         float barrelAngle = Mathf.Asin(heightDif / (target.WorldCenter - center.position).magnitude) * 180f / Mathf.PI;
         barrel.transform.localRotation = Quaternion.Euler(originalRotation + new Vector3(0, -barrelAngle, 0));
     }
@@ -80,7 +79,7 @@ public class TurretBehaviour : MonoBehaviour
     void FindTarget()
     {
         target = null;
-        var colliders = Physics.OverlapSphere(transform.position, viewDistance, enemyLayerMask.value);
+        var colliders = Physics.OverlapSphere(transform.position, ViewDistance, enemyLayerMask.value);
         if (colliders.Length > 0)
         {
             Collider closest = null;
@@ -104,18 +103,24 @@ public class TurretBehaviour : MonoBehaviour
 
     void ShootTarget()
     {
-        float delayBetweenShots = 60f / rateOfFire;
+        float delayBetweenShots = 60f / RateOfFire;
 
         float delta = Time.time - timeOfLastShot;
         if (delta > delayBetweenShots)
         {
-            Ray ray = new Ray(center.position, target.WorldCenter - center.position);
-            var hits = Physics.RaycastAll(ray, viewDistance);
+            var barrelPos = GetBarrelOpening().position;
+            
+            Ray ray = new Ray(barrelPos, target.WorldCenter - barrelPos);
+            Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red);
+            var hits = Physics.RaycastAll(ray, ViewDistance);
             var hit = FindClosestExceptSelf(hits, transform);
+            Debug.Log("looking for line of sight");
             if (hit != null)
             {
-                if (enemyLayerMask == (enemyLayerMask | (1 << hit.transform.gameObject.layer)))
+                Debug.Log("want to fire");
+                if ((enemyLayerMask & (1 << hit.gameObject.layer)) > 0)
                 {
+                    Debug.Log("firing");
                     //direct line of sight
                     //shoot
 
@@ -124,12 +129,12 @@ public class TurretBehaviour : MonoBehaviour
                     var laser = Instantiate(projectilePrefab);
                     var behaviour = laser.GetComponent<ProjectileBehaviour>();
 
-                    behaviour.from = GetBarrelOpening().position;
+                    behaviour.from = barrelPos;
                     behaviour.to = target.WorldCenter;
                     float dist = (behaviour.to - behaviour.from).magnitude;
                     behaviour.duration = dist / 300f;
 
-                    target.TakeDamage(damage);
+                    target.TakeDamage(Damage);
                 }
             }
         }
@@ -143,7 +148,7 @@ public class TurretBehaviour : MonoBehaviour
         foreach (var c in hits)
         {
             if (c.transform == self) continue;
-            float sqr = (c.transform.position - self.position).sqrMagnitude;
+            float sqr = (c.point - self.position).sqrMagnitude;
             if (sqr < min)
             {
                 min = sqr;
@@ -157,7 +162,7 @@ public class TurretBehaviour : MonoBehaviour
     Transform GetBarrelOpening()
     {
         int len = barrelOpenings.Length;
-        int index = alternateIndex++ % len;
-        return barrelOpenings[index];
+        alternateIndex = (alternateIndex + 1) % len;
+        return barrelOpenings[alternateIndex];
     }
 }

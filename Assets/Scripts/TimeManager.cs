@@ -14,42 +14,67 @@ public class TimeManager : MonoBehaviour
 
     [Header("Construction Menu")] 
     public GameObject constructionScrollView;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
+    private float timePaused;
+    
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) /*&& ResourceManager.IsAvailable(ResourceType.Time, 1)*/)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             PauseOrResume();
-        }/*
-        else if (!ResourceManager.IsAvailable(ResourceType.Time, 1))
+        }
+
+        if (Paused)
         {
-            Paused = false;
-            constructionScrollView.SetActive(false);
-        }*/
+            timePaused += Time.unscaledDeltaTime;
+
+            if (ResourceManager.GetResource(ResourceType.Time) == 0)
+            {
+                Unpause();
+            }
+            
+            if (timePaused > 1)
+            {
+                var amount = (int) timePaused;
+                if (ResourceManager.TryTakeResource(ResourceType.Time, amount))
+                {
+                    timePaused -= amount;
+                }
+                else
+                {
+                    timePaused = 0;
+                    Unpause();
+                }
+            }
+        }
     }
 
     public void PauseOrResume()
     {
         if (Paused)
         {
-            Paused = false;
-            constructionScrollView.SetActive(false);
-            PauseButton.image.sprite = ClockSprite;
-            Debug.Log("Resuming...");
+            Unpause();
         }
         else
         {
-            Paused = true;
-            constructionScrollView.SetActive(true);
-            PauseButton.image.sprite = PlaySprite;
-            Debug.Log("Slowing down time and pausing...");
+            Pause();
         }
+    }
+
+    private void Pause()
+    {
+        Paused = true;
+        constructionScrollView.SetActive(true);
+        PauseButton.image.sprite = PlaySprite;
+        Time.timeScale = 0;
+    }
+
+    private void Unpause()
+    {
+        Paused = false;
+        constructionScrollView.SetActive(false);
+        PauseButton.image.sprite = ClockSprite;
+        Time.timeScale = 1;
     }
 }

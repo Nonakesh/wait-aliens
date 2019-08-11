@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Linq;
+using System.Text;
 using PathFind;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ using UnityEngine;
 public class FloorMovement : MonoBehaviour, IMovement
 {
     public float MovementSpeed;
-    public float LerpSpeed;
+    public float RotationSpeed;
     public Point Target { get; set; }
 
     private Health _health;
@@ -18,6 +19,20 @@ public class FloorMovement : MonoBehaviour, IMovement
     private Quaternion targetRotation;
 
     private void Update()
+    {
+        var hasTarget = GetComponentsInChildren<TurretBehaviour>().Any(x => x.target != null);
+
+        if (!hasTarget)
+        {
+            UpdatePosition();
+        }
+
+        // Update position on grid for next frame
+        var current = GameGrid.Instance.PositionToPoint(transform.position);
+        GameGrid.Instance.UnitsPerTile[current.X, current.Y]++;
+    }
+
+    private void UpdatePosition()
     {
         var current = GameGrid.Instance.PositionToPoint(transform.position);
 
@@ -57,7 +72,7 @@ public class FloorMovement : MonoBehaviour, IMovement
         targetPosition = t.position + Vector3.ClampMagnitude(MovementSpeed * Time.deltaTime * dist.normalized, dist.magnitude);
 
         t.position = targetPosition;
-        t.rotation = Quaternion.Lerp(t.rotation, targetRotation, LerpSpeed * Time.deltaTime);
+        t.rotation = Quaternion.Lerp(t.rotation, targetRotation, RotationSpeed * Time.deltaTime);
 
         // Update position on grid for next frame
         current = GameGrid.Instance.PositionToPoint(transform.position);

@@ -328,7 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14108a65551ad0644b464020d7a37a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 10
+  Center: {x: 3, y: 2, z: 3}
+  MaxHealth: 40000
   RegenerationPerSecond: 1
   Drops: []
   DeathEffect: {fileID: 0}
@@ -504,15 +505,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  rotationSpeed: 30
+  Damage: 6
+  RateOfFire: 1000
+  RotationSpeed: 100
+  ViewDistance: 30
   barrel: {fileID: 7086980499926143942}
   barrelOpenings:
   - {fileID: 8656178831991792415}
-  viewDistance: 20
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  rateOfFire: 20
   projectilePrefab: {fileID: 7140508325201832443, guid: e9c85744a613ac245ad041f315e6b769,
     type: 3}
   center: {fileID: 545208751714402469}

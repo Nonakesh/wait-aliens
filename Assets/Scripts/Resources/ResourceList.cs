@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class ResourceList : MonoBehaviour
 {
+    public string Prepend, Append;
+    
     public ResourceType Type;
 
     public Text Text;
@@ -15,7 +17,6 @@ public class ResourceList : MonoBehaviour
     {
         var builder = new StringBuilder();
 
-        var name = Enum.GetName(typeof(ResourceType), Type);
-        Text.text = $"{name}: {ResourceManager.GetResource(Type)}";
+        Text.text = $"{Prepend}{ResourceManager.GetResource(Type)}{Append}";
     }
 }

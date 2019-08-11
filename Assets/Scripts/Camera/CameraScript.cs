@@ -11,6 +11,18 @@ public class CameraScript : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
+    private float boostedSpeed;
+    
+    [SerializeField]
+    private float rotationSpeed;
+    
+    [SerializeField]
+    private float scrollSpeed;
+    
+    [Header("Mouse")]
+    [SerializeField]
+    private bool mouseMovementEnabled;
+    [SerializeField]
     private int mouseBorderWidth = 50;
 
     // Start is called before the first frame update
@@ -22,19 +34,29 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 velocity = new Vector3(horizontal, 0, vertical);
-        if(velocity == Vector3.zero)
+        if(velocity == Vector3.zero && mouseMovementEnabled)
         {
             float mouseHorizontal = GetMouseHorizontal();
             float mouseVertical = GetMouseVertical();
             velocity = new Vector3(mouseHorizontal, 0, mouseVertical);
         }
-        velocity *= speed;
-        Vector3 total = ClampVector(transform.position + velocity * Time.deltaTime, minPosition, maxPosition);
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            velocity *= boostedSpeed;
+        }
+        else
+        {
+            velocity *= speed;
+        }
+        Vector3 total = ClampVector(transform.position + velocity * Time.unscaledDeltaTime, minPosition, maxPosition);
         transform.position = total;
+        
+        
     }
 
     private Vector3 ClampVector(Vector3 value, Vector3 min, Vector3 max)
