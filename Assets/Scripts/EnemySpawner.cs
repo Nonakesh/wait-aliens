@@ -103,7 +103,7 @@ public class EnemySpawner : MonoBehaviour
                 currentEnemies.RemoveAt(enemyIndex);
 
                 // Spawn
-                var instance = Instantiate(enemy, spawnPos, Quaternion.identity).GetComponent<IMovement>();
+                var instance = Instantiate(enemy, spawnPos, Quaternion.identity).GetComponent<FloorMovement>();
                 instance.Target = GameGrid.Instance.PositionToPoint(spawnPos);
                 EnemyAI.Instance.Units.Add(instance);
             }

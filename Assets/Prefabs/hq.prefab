@@ -437,8 +437,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 14, y: 12, z: 14}
-  m_Center: {x: 0, y: 5, z: 0}
+  m_Size: {x: 12, y: 12, z: 12}
+  m_Center: {x: 6, y: 5, z: 6}
 --- !u!114 &1737553956608250051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,11 +452,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 4970748205466021349}
-  Center: {x: 7, y: 6, z: 7}
+  Center: {x: 6, y: 6, z: 6}
   MaxHealth: 1000
   RegenerationPerSecond: 10
   Drops: []
   DeathEffect: {fileID: 0}
+  DeathTriggersGameOver: 1
 --- !u!114 &7286452058300550113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +613,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 7292598722511005316, guid: 442cfc8297ea4d143a498b233923061e,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292598722511005316, guid: 442cfc8297ea4d143a498b233923061e,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7292598722432444566, guid: 442cfc8297ea4d143a498b233923061e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -731,16 +742,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.02788
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292598722511005316, guid: 442cfc8297ea4d143a498b233923061e,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292598722511005316, guid: 442cfc8297ea4d143a498b233923061e,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 442cfc8297ea4d143a498b233923061e, type: 3}

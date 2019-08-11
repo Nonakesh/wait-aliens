@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Health : MonoBehaviour
 
     public Transform DeathEffect;
 
+    public bool DeathTriggersGameOver = false;
+    
     private Transform t;
 
     private void Awake()
@@ -65,7 +68,7 @@ public class Health : MonoBehaviour
             if (DeathEffect != null)
             {
                 var t = transform;
-                Instantiate(DeathEffect, t.position, t.rotation);
+                Instantiate(DeathEffect, t.transform.TransformPoint(Center), t.rotation);
             }
 
             // Unblock the grid on death
@@ -73,6 +76,11 @@ public class Health : MonoBehaviour
             if (building != null)
             {
                 building.UnblockAll();
+            }
+
+            if (DeathTriggersGameOver)
+            {
+                SceneManager.LoadScene("GameOver");
             }
             
             Destroy(gameObject);

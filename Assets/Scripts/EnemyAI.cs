@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using PathFind;
 using UnityEngine;
+using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
 
 public class EnemyAI : MonoBehaviour
 {
     public int TargetDistance = 2;
 
-    public List<IMovement> Units = new List<IMovement>();
+    public List<FloorMovement> Units = new List<FloorMovement>();
 
     public static EnemyAI Instance { get; private set; }
 

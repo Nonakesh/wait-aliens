@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameOverMenu : MonoBehaviour
 {
     public GameObject GameOverUI;
+
+    public static int Score;
     
     private void Awake()
     {
@@ -24,7 +26,7 @@ public class GameOverMenu : MonoBehaviour
     public void Restart()
     {
         // initiate another try
-        GameOverUI.SetActive(false);
+        SceneManager.LoadScene("Game");
     }
     
     public void OpenMenu()
