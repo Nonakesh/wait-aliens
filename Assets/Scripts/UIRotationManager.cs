@@ -11,7 +11,7 @@ public class UIRotationManager : MonoBehaviour
     
     void Update()
     {
-        myTransform.Rotate(rotationSpeed * Time.deltaTime * Vector3.up, Space.Self);
+        myTransform.Rotate(rotationSpeed * Time.unscaledDeltaTime * Vector3.up, Space.Self);
         myTransform.gameObject.SetActive(true);
     }
 }

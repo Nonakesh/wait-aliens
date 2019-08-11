@@ -9,7 +9,7 @@ public class TimeManager : MonoBehaviour
     
     [Header("Pause Button")]
     public Button PauseButton;
-    public Sprite ClockSprite;
+    public Sprite PauseSprite;
     public Sprite PlaySprite;
 
     [Header("Construction Menu")] 
@@ -74,7 +74,7 @@ public class TimeManager : MonoBehaviour
     {
         Paused = false;
         constructionScrollView.SetActive(false);
-        PauseButton.image.sprite = ClockSprite;
+        PauseButton.image.sprite = PauseSprite;
         Time.timeScale = 1;
     }
 }
