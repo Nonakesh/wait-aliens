@@ -15,19 +15,18 @@ public class BalancingWindow : EditorWindow
         // Get existing open window or if none, make a new one:
         BalancingWindow window = (BalancingWindow) GetWindow(typeof(BalancingWindow));
         window.Show();
+        window.UpdateDatabase();
+        for (var i = 0; i < window.foldout.Length; i++)
+        {
+            window.foldout[i] = true;
+        }
     }
 
     private void OnGUI()
     {
         if (GUILayout.Button("Update"))
         {
-            healths = AssetDatabase.FindAssets("t:Prefab")
-                .Select(x => AssetDatabase.GUIDToAssetPath(x))
-                .Select(x => AssetDatabase.LoadAssetAtPath<Health>(x))
-                .Where(x => x != null)
-                .ToArray();
-
-            foldout = new bool[healths.Length];
+            UpdateDatabase();
         }
 
         EditorGUILayout.Space();
@@ -39,6 +38,7 @@ public class BalancingWindow : EditorWindow
             foldout[i] = EditorGUILayout.Foldout(foldout[i], health.name);
 
             using (new EditorGUI.IndentLevelScope(2))
+            using (var changed = new EditorGUI.ChangeCheckScope())
             {
                 if (foldout[i])
                 {
@@ -57,6 +57,7 @@ public class BalancingWindow : EditorWindow
                     {
                         EditorGUILayout.LabelField("FloorMovement", EditorStyles.boldLabel);
                         movement.MovementSpeed = EditorGUILayout.FloatField("MovementSpeed", movement.MovementSpeed);
+                        movement.RotationSpeed = EditorGUILayout.FloatField("RotationSpeed", movement.RotationSpeed);
                         EditorGUILayout.Space();
                     }
 
@@ -80,8 +81,24 @@ public class BalancingWindow : EditorWindow
                         EditorGUILayout.Space();
                     }
                 }
+
+                if (changed.changed)
+                {
+                    EditorUtility.SetDirty(health);
+                }
             }
         }
         EditorGUILayout.EndScrollView();
+    }
+
+    private void UpdateDatabase()
+    {
+        healths = AssetDatabase.FindAssets("t:Prefab")
+            .Select(x => AssetDatabase.GUIDToAssetPath(x))
+            .Select(x => AssetDatabase.LoadAssetAtPath<Health>(x))
+            .Where(x => x != null)
+            .ToArray();
+
+        foldout = new bool[healths.Length];
     }
 }

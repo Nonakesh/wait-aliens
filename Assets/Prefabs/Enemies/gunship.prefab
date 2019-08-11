@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 15
+  RotationSpeed: 5
 --- !u!1 &7214999746941550986
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,16 +397,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  rotationSpeed: 100
+  Damage: 1
+  RateOfFire: 400
+  RotationSpeed: 100
+  ViewDistance: 20
   barrel: {fileID: 1503333596142253874}
   barrelOpenings:
   - {fileID: 7717773639364701229}
-  viewDistance: 10
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 4096
-  damage: 1
-  rateOfFire: 500
   projectilePrefab: {fileID: 8545507659378700687, guid: 683b48584fad24d4e855866966f82b0c,
     type: 3}
   center: {fileID: 6949119211819748021}

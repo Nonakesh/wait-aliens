@@ -111,6 +111,7 @@ public class TurretBehaviour : MonoBehaviour
             var barrelPos = GetBarrelOpening().position;
             
             Ray ray = new Ray(barrelPos, target.WorldCenter - barrelPos);
+            Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red);
             var hits = Physics.RaycastAll(ray, ViewDistance);
             var hit = FindClosestExceptSelf(hits, transform);
             if (hit != null)
@@ -158,7 +159,7 @@ public class TurretBehaviour : MonoBehaviour
     Transform GetBarrelOpening()
     {
         int len = barrelOpenings.Length;
-        int index = alternateIndex++ % len;
-        return barrelOpenings[index];
+        alternateIndex = (alternateIndex + 1) % len;
+        return barrelOpenings[alternateIndex];
     }
 }

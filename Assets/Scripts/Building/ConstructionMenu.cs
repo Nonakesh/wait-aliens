@@ -15,6 +15,12 @@ public class ConstructionMenu : MonoBehaviour
 
     private void Update()
     {
+        if (!TimeManager.Paused)
+        {
+            currentBuilding = null;
+            return;
+        }
+        
         for (int i = 0; i <= 8; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))

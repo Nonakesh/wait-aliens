@@ -7,14 +7,17 @@ using UnityEngine;
 public class FloorMovement : MonoBehaviour, IMovement
 {
     public float MovementSpeed;
-    
+    public float RotationSpeed;
     public Point Target { get; set; }
 
     private Health _health;
     public Health Health => _health ?? (_health = GetComponent<Health>());
 
     private const float Epsilon = 0.1f;
-    
+
+    private Vector3 targetPosition;
+    private Quaternion targetRotation;
+
     private void Update()
     {
         var hasTarget = GetComponentsInChildren<TurretBehaviour>().Any(x => x.target != null);
@@ -56,7 +59,7 @@ public class FloorMovement : MonoBehaviour, IMovement
 
         var lookDirection = nextPos + t.forward * 0.01f - t.position;
         lookDirection.y = 0;
-        t.rotation = Quaternion.LookRotation(lookDirection);
+        targetRotation = Quaternion.LookRotation(lookDirection);
 
         var dist = nextPos - t.position;
 
@@ -66,7 +69,14 @@ public class FloorMovement : MonoBehaviour, IMovement
             return;
         }
 
-        t.position += Vector3.ClampMagnitude(MovementSpeed * Time.deltaTime * dist.normalized, dist.magnitude);
+        targetPosition = t.position + Vector3.ClampMagnitude(MovementSpeed * Time.deltaTime * dist.normalized, dist.magnitude);
+
+        t.position = targetPosition;
+        t.rotation = Quaternion.Lerp(t.rotation, targetRotation, RotationSpeed * Time.deltaTime);
+
+        // Update position on grid for next frame
+        current = GameGrid.Instance.PositionToPoint(transform.position);
+        GameGrid.Instance.UnitsPerTile[current.X, current.Y]++;
     }
 
     private static Vector3 GetGridOffset() => GameGrid.Instance.Scale * 0.5f * new Vector3(1, 0, 1);

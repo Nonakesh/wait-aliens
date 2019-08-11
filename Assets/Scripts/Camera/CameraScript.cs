@@ -10,6 +10,14 @@ public class CameraScript : MonoBehaviour
     private Vector3 maxPosition;
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private float boostedSpeed;
+    
+    [SerializeField]
+    private float rotationSpeed;
+    
+    [SerializeField]
+    private float scrollSpeed;
     
     [Header("Mouse")]
     [SerializeField]
@@ -36,9 +44,19 @@ public class CameraScript : MonoBehaviour
             float mouseVertical = GetMouseVertical();
             velocity = new Vector3(mouseHorizontal, 0, mouseVertical);
         }
-        velocity *= speed;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            velocity *= boostedSpeed;
+        }
+        else
+        {
+            velocity *= speed;
+        }
         Vector3 total = ClampVector(transform.position + velocity * Time.unscaledDeltaTime, minPosition, maxPosition);
         transform.position = total;
+        
+        
     }
 
     private Vector3 ClampVector(Vector3 value, Vector3 min, Vector3 max)

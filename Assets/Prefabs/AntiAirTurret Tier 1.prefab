@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Center: {x: 3, y: 3, z: 1}
-  MaxHealth: 20
+  MaxHealth: 40
   RegenerationPerSecond: 1
   Drops: []
   DeathEffect: {fileID: 0}
@@ -178,8 +178,8 @@ MonoBehaviour:
   target: {fileID: 0}
   Damage: 2
   RateOfFire: 300
-  RotationSpeed: 0
-  ViewDistance: 0
+  RotationSpeed: 100
+  ViewDistance: 30
   barrel: {fileID: 3471005260923314736}
   barrelOpenings:
   - {fileID: 6797574027183513597}
