@@ -114,13 +114,10 @@ public class TurretBehaviour : MonoBehaviour
             Debug.DrawRay(ray.origin, ray.direction * 1000, Color.red);
             var hits = Physics.RaycastAll(ray, ViewDistance);
             var hit = FindClosestExceptSelf(hits, transform);
-            Debug.Log("looking for line of sight");
             if (hit != null)
             {
-                Debug.Log("want to fire");
                 if ((enemyLayerMask & (1 << hit.gameObject.layer)) > 0)
                 {
-                    Debug.Log("firing");
                     //direct line of sight
                     //shoot
 

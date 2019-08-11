@@ -40,6 +40,6 @@ public class MineBehaviour : MonoBehaviour
 
     void Harvest()
     {
-        ResourceManager.AddResource(ResourceType.Time, ResourceDropPerHit);
+        ResourceManager.AddResource(ResourceType.Time, ResourceDropPerHit, drill.position);
     }
 }
