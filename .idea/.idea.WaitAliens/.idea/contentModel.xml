@@ -34,6 +34,7 @@
             <e p="TileResult.cs" t="Include" />
           </e>
           <e p="Health.cs" t="Include" />
+          <e p="HealthBar.cs" t="Include" />
           <e p="HQ" t="Include">
             <e p="RotatingRadar.cs" t="Include" />
           </e>
@@ -58,6 +59,7 @@
             <e p="ResourceManager.cs" t="Include" />
             <e p="ResourceType.cs" t="Include" />
           </e>
+          <e p="RotateTowardsCamera.cs" t="Include" />
           <e p="TimeManager.cs" t="Include" />
           <e p="Turret" t="Include">
             <e p="TurretBehaviour.cs" t="Include" />

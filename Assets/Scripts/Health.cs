@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public HealthBar HealthBar;
+    
     public Vector3 Center;
 
     public Vector3 WorldCenter => t.TransformPoint(Center);
@@ -27,6 +29,12 @@ public class Health : MonoBehaviour
         CheckDeathState();
         
         Regenerate();
+
+        if (HealthBar != null)
+        {
+            HealthBar.gameObject.SetActive(CurrentHealth < MaxHealth - 0.01f);
+            HealthBar.Health = CurrentHealth / MaxHealth;
+        }
     }
     
     public void TakeDamage(float amount)
