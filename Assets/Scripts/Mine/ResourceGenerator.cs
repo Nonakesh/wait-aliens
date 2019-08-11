@@ -15,7 +15,7 @@ public class ResourceGenerator : MonoBehaviour
         if (timeSinceLastDrop >= TickDuration)
         {
             timeSinceLastDrop = 0;
-            ResourceManager.AddResource(Type, ResourceDrop);
+            ResourceManager.AddResource(Type, ResourceDrop, transform.position);
         }
     }
 }

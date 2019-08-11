@@ -46,7 +46,8 @@ public class Health : MonoBehaviour
     {
         foreach (var drop in Drops)
         {
-            ResourceManager.AddResource(drop.Type, drop.Amount);
+            drop.Position = t.position;
+            ResourceManager.AddResource(drop.Type, drop.Amount, drop.Position);
         }
     }
 

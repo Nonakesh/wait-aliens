@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurretBehaviour : MonoBehaviour
 {
-    private const float ANGLE_THRESHOLD = 1f;
+    private const float ANGLE_THRESHOLD = 5f;
 
     public Health target;
     
@@ -71,7 +71,7 @@ public class TurretBehaviour : MonoBehaviour
 
         //barrel
         if (barrel == null) return;
-        float heightDif = center.position.y - target.transform.position.y;
+        float heightDif = center.position.y - target.WorldCenter.y;
         float barrelAngle = Mathf.Asin(heightDif / (target.WorldCenter - center.position).magnitude) * 180f / Mathf.PI;
         barrel.transform.localRotation = Quaternion.Euler(originalRotation + new Vector3(0, -barrelAngle, 0));
     }
@@ -145,7 +145,7 @@ public class TurretBehaviour : MonoBehaviour
         foreach (var c in hits)
         {
             if (c.transform == self) continue;
-            float sqr = (c.transform.position - self.position).sqrMagnitude;
+            float sqr = (c.point - self.position).sqrMagnitude;
             if (sqr < min)
             {
                 min = sqr;

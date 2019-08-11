@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MineBehaviour : MonoBehaviour
 {
+    public int ResourceDropPerHit = 1;
+
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -12,6 +14,8 @@ public class MineBehaviour : MonoBehaviour
     private float upperHeight;
     [SerializeField]
     private AnimationCurve curve;
+    [SerializeField]
+    private Transform drill;
 
     private float currentTime;
 
@@ -31,11 +35,11 @@ public class MineBehaviour : MonoBehaviour
         }
         float curveValue = curve.Evaluate(currentTime);
         float height = Mathf.Lerp(lowerHeight, upperHeight, curveValue);
-        transform.localPosition = Vector3.up * height;
+        drill.localPosition = Vector3.up * height;
     }
 
     void Harvest()
     {
-        Debug.Log("harvest");
+        ResourceManager.AddResource(ResourceType.Time, ResourceDropPerHit, drill.position);
     }
 }
