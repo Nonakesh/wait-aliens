@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7cea0e09-4693-4573-85c4-5afd6a67bdeb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemySpawner.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemySpawner.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/IngameUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/IngameUI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Building/ConstructionMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Building/ConstructionMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid/FloorMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid/FloorMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid/IMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid/IMovement.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,31 +56,33 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Building/ConstructionMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+            <state relative-caret-position="270">
+              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
               <folding>
-                <marker date="1565525290619" expanded="false" signature="6:108" ph="..." />
-                <marker date="1565525290619" expanded="true" signature="155:3924" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="355:691" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="394:470" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="516:659" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="580:649" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="740:922" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="798:871" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="956:3178" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="999:1039" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="1111:1187" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="1371:1411" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="1556:2744" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="1636:2734" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="2164:2644" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="2223:2478" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="2538:2626" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="2843:3172" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="3013:3162" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="3276:3922" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="3470:3871" ph="{...}" />
-                <marker date="1565525290619" expanded="true" signature="3549:3703" ph="/* planePos.x -= building.Width * 0.5f * GameGrid.Instance.Scale; ... */" />
+                <marker date="1565525599987" expanded="false" signature="6:149" ph="..." />
+                <marker date="1565525599987" expanded="true" signature="196:4210" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="421:610" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="478:604" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="641:977" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="680:756" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="802:945" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="866:935" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="1026:1208" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="1084:1157" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="1242:3464" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="1285:1325" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="1397:1473" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="1657:1697" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="1842:3030" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="1922:3020" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="2450:2930" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="2509:2764" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="2824:2912" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="3129:3458" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="3299:3448" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="3562:4208" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="3756:4157" ph="{...}" />
+                <marker date="1565525599987" expanded="true" signature="3835:3989" ph="/* planePos.x -= building.Width * 0.5f * GameGrid.Instance.Scale; ... */" />
               </folding>
             </state>
           </provider>
@@ -383,12 +377,12 @@
       <option name="presentableId" value="Default" />
       <updated>1565370613228</updated>
       <workItem from="1565370616693" duration="18462000" />
-      <workItem from="1565441736263" duration="35959000" />
+      <workItem from="1565441736263" duration="36268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54421000" />
+    <option name="totallyTimeSpent" value="54730000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1015,31 +1009,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Building/ConstructionMenu.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        <state relative-caret-position="270">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
           <folding>
-            <marker date="1565525290619" expanded="false" signature="6:108" ph="..." />
-            <marker date="1565525290619" expanded="true" signature="155:3924" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="355:691" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="394:470" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="516:659" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="580:649" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="740:922" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="798:871" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="956:3178" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="999:1039" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="1111:1187" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="1371:1411" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="1556:2744" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="1636:2734" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="2164:2644" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="2223:2478" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="2538:2626" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="2843:3172" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="3013:3162" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="3276:3922" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="3470:3871" ph="{...}" />
-            <marker date="1565525290619" expanded="true" signature="3549:3703" ph="/* planePos.x -= building.Width * 0.5f * GameGrid.Instance.Scale; ... */" />
+            <marker date="1565525599987" expanded="false" signature="6:149" ph="..." />
+            <marker date="1565525599987" expanded="true" signature="196:4210" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="421:610" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="478:604" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="641:977" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="680:756" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="802:945" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="866:935" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="1026:1208" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="1084:1157" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="1242:3464" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="1285:1325" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="1397:1473" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="1657:1697" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="1842:3030" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="1922:3020" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="2450:2930" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="2509:2764" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="2824:2912" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="3129:3458" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="3299:3448" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="3562:4208" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="3756:4157" ph="{...}" />
+            <marker date="1565525599987" expanded="true" signature="3835:3989" ph="/* planePos.x -= building.Width * 0.5f * GameGrid.Instance.Scale; ... */" />
           </folding>
         </state>
       </provider>

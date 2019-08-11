@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using PathFind;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ConstructionMenu : MonoBehaviour
 {
@@ -11,8 +13,18 @@ public class ConstructionMenu : MonoBehaviour
 
     public BuildingCost[] Buildings;
 
+    public Text[] Costs;
+
     private BuildingCost currentBuilding;
 
+    private void Start()
+    {
+        for (var i = 0; i < Buildings.Length; i++)
+        {
+            Costs[i].text = Buildings[i].Costs.First(x => x.Type == ResourceType.Time).Amount.ToString();
+        }
+    }
+    
     private void Update()
     {
         if (!TimeManager.Paused)
