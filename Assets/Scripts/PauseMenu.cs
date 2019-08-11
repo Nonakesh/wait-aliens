@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -41,7 +42,8 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenMenu()
     {
-        throw new NotImplementedException();
+        Resume();
+        SceneManager.LoadScene("Menu");
     }
 
     public static void QuitGame()
