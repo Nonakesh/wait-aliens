@@ -64,8 +64,48 @@ MonoBehaviour:
   - {fileID: 4585675833363013994, guid: 45f936bbff8c4394f85cab89b1b81b0e, type: 3}
   Waves:
   - Difficulty: 0
-    Enemies: 0a00000000000000
-    SpawnTime: 1
-    SpawnAmount: 10
-    WaveCooldown: 20
-  DifficultyIncreaseTime: 60
+    Enemies: 0100000000000000
+    SpawnTime: 5
+    SpawnAmount: 2
+    WaveCooldown: 10
+  - Difficulty: 0
+    Enemies: 0000000000000000
+    SpawnTime: 5
+    SpawnAmount: 2
+    WaveCooldown: 10
+  - Difficulty: 1
+    Enemies: 0400000000000000
+    SpawnTime: 5
+    SpawnAmount: 2
+    WaveCooldown: 10
+  - Difficulty: 1
+    Enemies: 0000000000000000
+    SpawnTime: 5
+    SpawnAmount: 2
+    WaveCooldown: 10
+  - Difficulty: 2
+    Enemies: 0300000000000000
+    SpawnTime: 4
+    SpawnAmount: 2
+    WaveCooldown: 10
+  - Difficulty: 2
+    Enemies: 0000000001000000
+    SpawnTime: 4
+    SpawnAmount: 30
+    WaveCooldown: 10
+  - Difficulty: 3
+    Enemies: 0400000001000000
+    SpawnTime: 2
+    SpawnAmount: 2
+    WaveCooldown: 10
+  - Difficulty: 4
+    Enemies: 0500000002000000
+    SpawnTime: 2
+    SpawnAmount: 2
+    WaveCooldown: 10
+  - Difficulty: 5
+    Enemies: 0a00000004000000
+    SpawnTime: 2
+    SpawnAmount: 4
+    WaveCooldown: 10
+  DifficultyIncreaseTime: 75

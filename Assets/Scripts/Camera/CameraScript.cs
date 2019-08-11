@@ -56,7 +56,11 @@ public class CameraScript : MonoBehaviour
         {
             velocity *= speed;
         }
-        Vector3 total = ClampVector(transform.position + velocity * Time.unscaledDeltaTime, minPosition, maxPosition);
+
+        velocity *= Time.unscaledDeltaTime;
+        velocity = transform.forward * velocity.z + transform.right * velocity.x;
+        
+        Vector3 total = ClampVector(transform.position + velocity, minPosition, maxPosition);
         transform.position = total;
 
         if (Input.GetMouseButton(2))

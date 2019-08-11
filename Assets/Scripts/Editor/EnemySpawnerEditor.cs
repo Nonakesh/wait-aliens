@@ -8,6 +8,8 @@ public class EnemySpawnerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
+        
+        
         var enemyTypes = serializedObject.FindProperty(nameof(EnemySpawner.EnemyTypes));
         EditorGUILayout.PropertyField(enemyTypes, true);
 
@@ -22,6 +24,8 @@ public class EnemySpawnerEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(EnemySpawner.DifficultyIncreaseTime)), true);
         
         serializedObject.ApplyModifiedProperties();
+
+        EditorGUILayout.PropertyField(serializedObject.FindProperty(nameof(EnemySpawner.Waves)), true);
     }
 
     private void WaveEditor(SerializedProperty property, int index, int enemyCount, string[] enemyNames)

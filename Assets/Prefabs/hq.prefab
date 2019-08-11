@@ -454,9 +454,10 @@ MonoBehaviour:
   HealthBar: {fileID: 4970748205466021349}
   Center: {x: 6, y: 6, z: 6}
   MaxHealth: 1000
-  RegenerationPerSecond: 10
+  RegenerationPerSecond: 5
   Drops: []
-  DeathEffect: {fileID: 0}
+  DeathEffect: {fileID: 512659801490813775, guid: 1b956cdf10c262c458404715f138737e,
+    type: 3}
   DeathTriggersGameOver: 1
 --- !u!114 &7286452058300550113
 MonoBehaviour:

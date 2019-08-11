@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d20384a9b3eef468fb83fb736689fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 100
+  StartTime: 150
   StartScore: 0
   ResourceDropPrefab: {fileID: 3596447034307614012, guid: 8f3653d49dd9418479a86409835e17d7,
     type: 3}
@@ -71,25 +71,25 @@ MonoBehaviour:
       type: 3}
     Costs:
     - Type: 0
-      Amount: 50
+      Amount: 30
       Position: {x: 0, y: 0, z: 0}
   - Building: {fileID: 6529574862558171013, guid: 74fda1c9f1107c64f9376da77ab72290,
       type: 3}
     Costs:
     - Type: 0
-      Amount: 30
+      Amount: 50
       Position: {x: 0, y: 0, z: 0}
   - Building: {fileID: 5606308668449309081, guid: c21dc660e8031374ebeb771ad712ba17,
       type: 3}
     Costs:
     - Type: 0
-      Amount: 30
+      Amount: 80
       Position: {x: 0, y: 0, z: 0}
   - Building: {fileID: 2804730738046046399, guid: ed34f0d033bf24049ad4148f83976644,
       type: 3}
     Costs:
     - Type: 0
-      Amount: 30
+      Amount: 5
       Position: {x: 0, y: 0, z: 0}
   Costs:
   - {fileID: 5080438600656554191}
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetDistance: 4
+  Units: []
 --- !u!1001 &5226745063326407116
 PrefabInstance:
   m_ObjectHideFlags: 0

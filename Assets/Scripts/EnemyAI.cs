@@ -107,7 +107,7 @@ public class EnemyAI : MonoBehaviour
                     // Check if the tile is next to a player building
                     if (!tileResult.IsWalkable)
                     {
-                        if (tileResult.Building != null)
+                        if (tileResult.Building != null && tileResult.Building.GetComponent<Health>() != null)
                         {
                             isEnemyNeighbor = true;
                         }

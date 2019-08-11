@@ -209,11 +209,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 8217039584050458097}
   Center: {x: 0, y: 4, z: 0}
-  MaxHealth: 10
+  MaxHealth: 40
   RegenerationPerSecond: 1
   Drops:
   - Type: 0
-    Amount: 5
+    Amount: 4
     Position: {x: 0, y: 0, z: 0}
   - Type: 1
     Amount: 20
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6026fe8b04dc644d8f24c7fa25c7b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 15
+  MovementSpeed: 18
   RotationSpeed: 5
 --- !u!1 &7214999746941550986
 GameObject:
@@ -405,7 +405,7 @@ MonoBehaviour:
   target: {fileID: 0}
   Damage: 1
   RateOfFire: 400
-  RotationSpeed: 100
+  RotationSpeed: 300
   ViewDistance: 20
   barrel: {fileID: 1503333596142253874}
   barrelOpenings:
