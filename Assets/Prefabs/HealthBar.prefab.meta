@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Prefabs/HealthBar.prefab.meta
 guid: 442cfc8297ea4d143a498b233923061e
 PrefabImporter:
+=======
+guid: 9b298f06d7f0d944da17f212b1b022d2
+DefaultImporter:
+>>>>>>> 6e3edf793b6dd1ef70aac3ec9b9698b670d27879:Assets/Scenes/GameOver.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
