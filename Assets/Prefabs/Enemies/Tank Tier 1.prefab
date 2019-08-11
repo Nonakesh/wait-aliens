@@ -285,13 +285,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 2987580525087788384}
   Center: {x: 0, y: 0.5, z: 0}
-  MaxHealth: 5
+  MaxHealth: 10
   RegenerationPerSecond: 0.5
   Drops:
   - Type: 0
     Amount: 5
+    Position: {x: 0, y: 0, z: 0}
   - Type: 1
     Amount: 10
+    Position: {x: 0, y: 0, z: 0}
   DeathEffect: {fileID: 0}
 --- !u!114 &7140498349624492092
 MonoBehaviour:
@@ -394,10 +396,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  Damage: 3
+  Damage: 5
   RateOfFire: 100
   RotationSpeed: 100
-  ViewDistance: 12
+  ViewDistance: 20
   barrel: {fileID: 172683891490136266}
   barrelOpenings:
   - {fileID: 2152098072501318035}

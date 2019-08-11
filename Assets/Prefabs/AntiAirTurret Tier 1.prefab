@@ -178,8 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  Damage: 2
-  RateOfFire: 300
+  Damage: 1
+  RateOfFire: 700
   RotationSpeed: 100
   ViewDistance: 30
   barrel: {fileID: 3471005260923314736}

@@ -209,13 +209,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 8217039584050458097}
   Center: {x: 0, y: 4, z: 0}
-  MaxHealth: 10
+  MaxHealth: 20
   RegenerationPerSecond: 1
   Drops:
   - Type: 0
     Amount: 5
+    Position: {x: 0, y: 0, z: 0}
   - Type: 1
     Amount: 20
+    Position: {x: 0, y: 0, z: 0}
   DeathEffect: {fileID: 0}
 --- !u!114 &4535976036475570612
 MonoBehaviour:
@@ -581,6 +583,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5514509364357542619}
     m_Modifications:
+    - target: {fileID: 8663713046848174520, guid: ce24cfec2c3e40a4387e6e8b04d67285,
+        type: 3}
+      propertyPath: m_Name
+      value: Thrust
+      objectReference: {fileID: 0}
     - target: {fileID: 7695746036266017949, guid: ce24cfec2c3e40a4387e6e8b04d67285,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -646,11 +653,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.1331679
       objectReference: {fileID: 0}
-    - target: {fileID: 8663713046848174520, guid: ce24cfec2c3e40a4387e6e8b04d67285,
-        type: 3}
-      propertyPath: m_Name
-      value: Thrust
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce24cfec2c3e40a4387e6e8b04d67285, type: 3}
 --- !u!4 &5019238842896911512 stripped
@@ -666,6 +668,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5514509364357542619}
     m_Modifications:
+    - target: {fileID: 8663713046848174520, guid: ce24cfec2c3e40a4387e6e8b04d67285,
+        type: 3}
+      propertyPath: m_Name
+      value: Thrust
+      objectReference: {fileID: 0}
     - target: {fileID: 7695746036266017949, guid: ce24cfec2c3e40a4387e6e8b04d67285,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -721,11 +728,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8663713046848174520, guid: ce24cfec2c3e40a4387e6e8b04d67285,
-        type: 3}
-      propertyPath: m_Name
-      value: Thrust
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce24cfec2c3e40a4387e6e8b04d67285, type: 3}
 --- !u!4 &3215898712564311019 stripped
@@ -741,6 +743,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5514509364357542619}
     m_Modifications:
+    - target: {fileID: 8663713046848174520, guid: ce24cfec2c3e40a4387e6e8b04d67285,
+        type: 3}
+      propertyPath: m_Name
+      value: Thrust
+      objectReference: {fileID: 0}
     - target: {fileID: 7695746036266017949, guid: ce24cfec2c3e40a4387e6e8b04d67285,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -796,11 +803,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8663713046848174520, guid: ce24cfec2c3e40a4387e6e8b04d67285,
-        type: 3}
-      propertyPath: m_Name
-      value: Thrust
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce24cfec2c3e40a4387e6e8b04d67285, type: 3}
 --- !u!4 &3871114610649271028 stripped
@@ -816,6 +818,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5514509364357542619}
     m_Modifications:
+    - target: {fileID: 8663713046848174520, guid: ce24cfec2c3e40a4387e6e8b04d67285,
+        type: 3}
+      propertyPath: m_Name
+      value: Thrust
+      objectReference: {fileID: 0}
     - target: {fileID: 7695746036266017949, guid: ce24cfec2c3e40a4387e6e8b04d67285,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -880,11 +887,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2840697
-      objectReference: {fileID: 0}
-    - target: {fileID: 8663713046848174520, guid: ce24cfec2c3e40a4387e6e8b04d67285,
-        type: 3}
-      propertyPath: m_Name
-      value: Thrust
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce24cfec2c3e40a4387e6e8b04d67285, type: 3}
