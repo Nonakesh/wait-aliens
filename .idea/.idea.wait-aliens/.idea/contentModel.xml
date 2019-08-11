@@ -24,6 +24,7 @@
           </e>
           <e p="EnemyAI.cs" t="Include" />
           <e p="EnemySpawner.cs" t="Include" />
+          <e p="GameOverMenu.cs" t="Include" />
           <e p="Grid" t="Include">
             <e p="FloorMovement.cs" t="Include" />
             <e p="GameGrid.cs" t="Include" />
@@ -36,6 +37,7 @@
             <e p="RotatingRadar.cs" t="Include" />
           </e>
           <e p="Laser" t="Include">
+            <e p="PitchVariation.cs" t="Include" />
             <e p="ProjectileBehaviour.cs" t="Include" />
           </e>
           <e p="MainMenu.cs" t="Include" />
@@ -52,6 +54,7 @@
           <e p="PauseMenu.cs" t="Include" />
           <e p="Resources" t="Include">
             <e p="ResourceDrop.cs" t="Include" />
+            <e p="ResourceDropCanvas.cs" t="Include" />
             <e p="ResourceList.cs" t="Include" />
             <e p="ResourceManager.cs" t="Include" />
             <e p="ResourceType.cs" t="Include" />
