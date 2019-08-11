@@ -26,6 +26,7 @@
           </e>
           <e p="EnemyAI.cs" t="Include" />
           <e p="EnemySpawner.cs" t="Include" />
+          <e p="GameOverMenu.cs" t="Include" />
           <e p="Grid" t="Include">
             <e p="FloorMovement.cs" t="Include" />
             <e p="GameGrid.cs" t="Include" />

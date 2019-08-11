@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObject: {fileID: 0}
   minPosition: {x: 0, y: 0, z: 0}
-  maxPosition: {x: 100, y: 0, z: 100}
+  maxPosition: {x: 200, y: 0, z: 200}
   speed: 20
   boostedSpeed: 40
   rotationSpeed: 100
@@ -95,8 +95,8 @@ Camera:
   m_GameObject: {fileID: 8206968541266494637}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.16398183, g: 0.30199307, b: 0.5188679, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

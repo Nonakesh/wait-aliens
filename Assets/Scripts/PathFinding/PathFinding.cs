@@ -47,21 +47,24 @@ namespace PathFind
             Node startNode = grid.Nodes[startPos.X, startPos.Y];
             Node targetNode = grid.Nodes[targetPos.X, targetPos.Y];
 
-            List<Node> openSet = new List<Node>();
+            List<Node> openList = new List<Node>();
+            HashSet<Node> openSet = new HashSet<Node>();
             HashSet<Node> closedSet = new HashSet<Node>();
+            openList.Add(startNode);
             openSet.Add(startNode);
 
-            while (openSet.Count > 0)
+            while (openList.Count > 0)
             {
-                Node currentNode = openSet[0];
-                for (int i = 1; i < openSet.Count; i++)
+                Node currentNode = openList[0];
+                for (int i = 1; i < openList.Count; i++)
                 {
-                    if (openSet[i].FCost < currentNode.FCost || openSet[i].FCost == currentNode.FCost && openSet[i].HCost < currentNode.HCost)
+                    if (openList[i].FCost < currentNode.FCost || openList[i].FCost == currentNode.FCost && openList[i].HCost < currentNode.HCost)
                     {
-                        currentNode = openSet[i];
+                        currentNode = openList[i];
                     }
                 }
 
+                openList.Remove(currentNode);
                 openSet.Remove(currentNode);
                 closedSet.Add(currentNode);
 
@@ -78,14 +81,16 @@ namespace PathFind
                     }
 
                     int newMovementCostToNeighbour = currentNode.GCost + GetDistance(currentNode, neighbour) * (int)(10.0f * neighbour.Penalty);
-                    if (newMovementCostToNeighbour < neighbour.GCost || !openSet.Contains(neighbour))
+                    var isNeighborInOpenList = openSet.Contains(neighbour);
+                    if (newMovementCostToNeighbour < neighbour.GCost || !isNeighborInOpenList)
                     {
                         neighbour.GCost = newMovementCostToNeighbour;
                         neighbour.HCost = GetDistance(neighbour, targetNode);
                         neighbour.Parent = currentNode;
 
-                        if (!openSet.Contains(neighbour))
+                        if (!isNeighborInOpenList)
                         {
+                            openList.Add(neighbour);
                             openSet.Add(neighbour);
                         }
                     }
