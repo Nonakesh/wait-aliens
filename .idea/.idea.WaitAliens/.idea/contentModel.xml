@@ -39,6 +39,7 @@
             <e p="RotatingRadar.cs" t="Include" />
           </e>
           <e p="Laser" t="Include">
+            <e p="PitchVariation.cs" t="Include" />
             <e p="ProjectileBehaviour.cs" t="Include" />
           </e>
           <e p="MainMenu.cs" t="Include" />
@@ -55,6 +56,7 @@
           <e p="PauseMenu.cs" t="Include" />
           <e p="Resources" t="Include">
             <e p="ResourceDrop.cs" t="Include" />
+            <e p="ResourceDropCanvas.cs" t="Include" />
             <e p="ResourceList.cs" t="Include" />
             <e p="ResourceManager.cs" t="Include" />
             <e p="ResourceType.cs" t="Include" />
@@ -64,6 +66,7 @@
           <e p="Turret" t="Include">
             <e p="TurretBehaviour.cs" t="Include" />
           </e>
+          <e p="UIModel.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
