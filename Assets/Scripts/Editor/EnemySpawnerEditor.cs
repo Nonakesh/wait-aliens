@@ -14,7 +14,7 @@ public class EnemySpawnerEditor : Editor
         var enemyNames = new string[enemyTypes.arraySize];
         for (int i = 0; i < enemyNames.Length; i++)
         {
-            enemyNames[i] = enemyTypes.GetArrayElementAtIndex(i).objectReferenceValue.name;
+            enemyNames[i] = enemyTypes.GetArrayElementAtIndex(i)?.objectReferenceValue?.name ?? "Null";
         }
         
         EditorExtensions.CustomArrayProperty(serializedObject.FindProperty(nameof(EnemySpawner.Waves)), (p, i) => WaveEditor(p, i, enemyTypes.arraySize, enemyNames));
