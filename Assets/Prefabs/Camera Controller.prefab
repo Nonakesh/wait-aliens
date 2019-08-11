@@ -44,10 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4f590ab403b67c4090737eb07b34e40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraObject: {fileID: 0}
   minPosition: {x: 0, y: 0, z: 0}
   maxPosition: {x: 100, y: 0, z: 100}
   speed: 20
-  boostedSpeed: 30
+  boostedSpeed: 40
+  rotationSpeed: 100
+  scrollSpeed: 10
   mouseMovementEnabled: 0
   mouseBorderWidth: 50
 --- !u!1 &8206968541266494637

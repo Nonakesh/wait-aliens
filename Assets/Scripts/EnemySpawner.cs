@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Assertions;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Building))]
 public class EnemySpawner : MonoBehaviour
 {
+    public Health[] EnemyTypes;
     public EnemyWave[] Waves;
 
     public float DifficultyIncreaseTime = 60;
@@ -18,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
     private int difficulty;
 
     private EnemyWave currentWave;
+    private List<Health> currentEnemies = new List<Health>();
     
     private float difficultyTiming;
     private float waveTiming;
@@ -46,16 +49,26 @@ public class EnemySpawner : MonoBehaviour
         // If no wave is currently selected, randomly select a new one
         if (currentWave == null)
         {
-            // Get a wave from the current difficulty and clone it
+            // Get a wave from the current difficulty
             var waves = waveDictionary[difficulty].ToArray();
-            currentWave = new EnemyWave(waves[Random.Range(0, waves.Length)]);
+            currentWave = waves[Random.Range(0, waves.Length)];
+
+            Assert.AreEqual(EnemyTypes.Length, currentWave.Enemies.Length);
+            
+            for (int i = 0; i < currentWave.Enemies.Length; i++)
+            {
+                for (int j = 0; j < currentWave.Enemies[i]; j++)
+                {
+                    currentEnemies.Add(EnemyTypes[i]);
+                }
+            }
             
             // Set the wave time directly, to immediately spawn the first enemies
             waveTiming = currentWave.SpawnTime;
         }
 
         // After the cooldown replace the wave with a new one
-        if (currentWave.Enemies.Count == 0)
+        if (currentEnemies.Count == 0)
         {
             if (waveTiming >= currentWave.WaveCooldown)
             {
@@ -76,7 +89,7 @@ public class EnemySpawner : MonoBehaviour
             
             for (int i = 0; i < currentWave.SpawnAmount; i++)
             {
-                if (currentWave.Enemies.Count == 0)
+                if (currentEnemies.Count == 0)
                 {
                     return;
                 }
@@ -85,9 +98,9 @@ public class EnemySpawner : MonoBehaviour
                 var z = Random.Range(pos.z, pos.z + length);
                 var spawnPos = new Vector3(x, 0, z);
 
-                var enemyIndex = Random.Range(0, currentWave.Enemies.Count);
-                var enemy = currentWave.Enemies[enemyIndex];
-                currentWave.Enemies.RemoveAt(enemyIndex);
+                var enemyIndex = Random.Range(0, currentEnemies.Count);
+                var enemy = currentEnemies[enemyIndex];
+                currentEnemies.RemoveAt(enemyIndex);
 
                 // Spawn
                 var instance = Instantiate(enemy, spawnPos, Quaternion.identity).GetComponent<IMovement>();
@@ -104,7 +117,7 @@ public class EnemyWave
     [Tooltip("Higher is harder")]
     public int Difficulty = 0;
     
-    public List<Health> Enemies;
+    public int[] Enemies;
     
     [Tooltip("The time between enemy spawns for this wave")]
     public float SpawnTime;
@@ -114,13 +127,4 @@ public class EnemyWave
 
     [Tooltip("After each wave there is a short cooldown before the next one starts.")]
     public float WaveCooldown;
-    
-    public EnemyWave(EnemyWave wave)
-    {
-        Difficulty = wave.Difficulty;
-        Enemies = wave.Enemies.ToList();
-        SpawnTime = wave.SpawnTime;
-        SpawnAmount = wave.SpawnAmount;
-        WaveCooldown = wave.WaveCooldown;
-    }
 }

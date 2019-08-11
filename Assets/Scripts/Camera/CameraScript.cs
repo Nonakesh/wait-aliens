@@ -5,6 +5,9 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     [SerializeField]
+    private Transform cameraObject;
+    
+    [SerializeField]
     private Vector3 minPosition;
     [SerializeField]
     private Vector3 maxPosition;
@@ -55,8 +58,13 @@ public class CameraScript : MonoBehaviour
         }
         Vector3 total = ClampVector(transform.position + velocity * Time.unscaledDeltaTime, minPosition, maxPosition);
         transform.position = total;
-        
-        
+
+        if (Input.GetMouseButton(2))
+        {
+            var rotation = Input.GetAxis("Mouse X");
+            
+            transform.rotation *= Quaternion.Euler(0, rotation * rotationSpeed * Time.unscaledDeltaTime, 0);
+        }
     }
 
     private Vector3 ClampVector(Vector3 value, Vector3 min, Vector3 max)
