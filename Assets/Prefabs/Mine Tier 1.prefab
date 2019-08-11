@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 50142470787285841}
   - component: {fileID: 4940926766078453083}
   - component: {fileID: 2365145593546184034}
-  - component: {fileID: 2930585462470362624}
   m_Layer: 12
   m_Name: Cylinder
   m_TagString: Untagged
@@ -81,72 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2930585462470362624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 729059122677798934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf157298de7f58649835c8d167a0ee2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.5
-  lowerHeight: 1.9
-  upperHeight: 3.7
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.31421164
-      outSlope: 0.31421164
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.10233924
-      value: 0.03215618
-      inSlope: 0.45234475
-      outSlope: 0.45234475
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.55339295
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5241073
-      value: 0.963858
-      inSlope: -0.59030044
-      outSlope: -0.59030044
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.16578262
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.7941059
-      value: 0.012429174
-      inSlope: 0.0064237434
-      outSlope: 0.0064237434
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 1
-      outWeight: 1
-    - serializedVersion: 3
-      time: 0.99972534
-      value: -0.002040863
-      inSlope: -0.0703729
-      outSlope: -0.0703729
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &943601263835413398
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +280,7 @@ GameObject:
   - component: {fileID: 1764530291745182068}
   - component: {fileID: 8963258213212298869}
   - component: {fileID: 8857123972526527883}
-  - component: {fileID: 1266669463252817371}
+  - component: {fileID: 2728140362761952806}
   m_Layer: 12
   m_Name: Mine Tier 1
   m_TagString: Untagged
@@ -418,7 +351,7 @@ MonoBehaviour:
   Width: 1
   Length: 1
   IsWalkable: 0
---- !u!114 &1266669463252817371
+--- !u!114 &2728140362761952806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -427,12 +360,65 @@ MonoBehaviour:
   m_GameObject: {fileID: 4636119212855464209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fed83a774e09ab47ae300df524c1ca0, type: 3}
+  m_Script: {fileID: 11500000, guid: cf157298de7f58649835c8d167a0ee2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Type: 0
-  TickDuration: 5
-  ResourceDrop: 5
+  ResourceDropPerHit: 1
+  speed: 0.5
+  lowerHeight: 1.9
+  upperHeight: 3.7
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.31421164
+      outSlope: 0.31421164
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.10233924
+      value: 0.03215618
+      inSlope: 0.45234475
+      outSlope: 0.45234475
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.55339295
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5241073
+      value: 0.963858
+      inSlope: -0.59030044
+      outSlope: -0.59030044
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.16578262
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7941059
+      value: 0.012429174
+      inSlope: 0.0064237434
+      outSlope: 0.0064237434
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 1
+    - serializedVersion: 3
+      time: 0.99972534
+      value: -0.002040863
+      inSlope: -0.0703729
+      outSlope: -0.0703729
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  drill: {fileID: 50142470787285841}
 --- !u!1 &7132870147326976253
 GameObject:
   m_ObjectHideFlags: 0
